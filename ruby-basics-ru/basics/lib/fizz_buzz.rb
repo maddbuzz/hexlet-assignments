@@ -3,6 +3,7 @@
 # BEGIN
 def fizz_buzz(start, stop)
   return nil if start > stop
+
   (start.upto stop).to_a.map do |i|
     if (i % 15).zero?
       'FizzBuzz'
