@@ -1,0 +1,15 @@
+# WARNING: Paths must not include the name of the "lessons" directory.
+# Outside, this directory is called "exercises".
+
+**/*/presentation*.html
+.vagrant
+.idea/
+node_modules/
+vendor/
+dist
+*.lock
+package-lock.json
+Gemfile.lock
+tmp/
+!.keep
+*.log
