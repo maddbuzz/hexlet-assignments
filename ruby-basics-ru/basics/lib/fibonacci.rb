@@ -3,9 +3,16 @@
 # BEGIN
 def fibonacci(num)
   return nil if num.negative?
-  return 0 if num.zero?
-  return 1 if num == 1
+  return num if num < 2
 
-  fibonacci(num - 1) + fibonacci(num - 2)
+  prev_prev = 0
+  prev = 1
+  current = nil
+  (2..num).each do
+    current = prev_prev + prev
+    prev_prev = prev
+    prev = current
+  end
+  current
 end
 # END
