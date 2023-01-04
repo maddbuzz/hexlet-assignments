@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 # BEGIN
-def compare_versions(string1, string2)
-  major1, minor1 = string1.split('.').map(&:to_i)
-  major2, minor2 = string2.split('.').map(&:to_i)
-  major1 == major2 ? minor1 <=> minor2 : major1 <=> major2
+def compare_versions(v1string, v2string)
+  v1array = v1string.split('.').map(&:to_i)
+  v2array = v2string.split('.').map(&:to_i)
+  v1array <=> v2array
 end
 # END
