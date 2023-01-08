@@ -7,6 +7,8 @@ module Model
   end
 
   def initialize(attributes = {})
+    pp self, instance_variables
+    pp(methods.filter { |m| m[-1] == '=' })
     attributes.each do |(k, v)|
       instance_variable_set "@#{k}", v
     end
@@ -34,7 +36,7 @@ module Model
       # Getter
       define_method attribute_name.to_s do
         value = instance_variable_get "@#{attribute_name}"
-        value_type_convert(value, options[:type])
+        value.nil? ? options[:default] : value_type_convert(value, options[:type])
       end
       ########
 
