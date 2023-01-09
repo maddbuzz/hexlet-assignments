@@ -2,67 +2,53 @@
 
 # BEGIN
 module Model
+  def initialize(initial_attributes = {})
+    @attributes = {}
+    self.class.attribute_options.each_pair do |name, options|
+      value = initial_attributes.fetch(name, options.fetch(:default, nil))
+      method("#{name}=").call(value)
+    end
+  end
+
   def self.included(base)
-    base.extend(ClassMethods)
+    base.attr_reader :attributes
+    base.extend ClassMethods
   end
 
   module ClassMethods
+    def attribute_options
+      @attribute_options || {}
+    end
+
     def attribute(attribute_name, options = {})
-      # Getter
-      define_method attribute_name.to_s do
-        value = instance_variable_get "@#{attribute_name}"
-        value_type_convert(value, options[:type])
-      end
-      ########
+      @attribute_options ||= {}
+      attribute_options[attribute_name] = options
 
-      # Setter
-      define_method "#{attribute_name}=" do |value|
-        instance_variable_set "@#{attribute_name}", value
+      define_method :"#{attribute_name}" do
+        @attributes[attribute_name]
       end
 
-      alias_method "#{attribute_name}_setter", "#{attribute_name}="
-      ########
-
-      # Default
-      define_method "#{attribute_name}_default" do
-        method("#{attribute_name}=").call(options[:default])
+      define_method :"#{attribute_name}=" do |value|
+        @attributes[attribute_name] = value_type_convert(value, options[:type])
       end
-      #########
     end
   end
+end
 
-  def set_defaults
-    methods
-      .filter { |m| m[-8..] == '_default' }
-      .each { |default| method(default).call }
-  end
+def value_type_convert(value, type)
+  return nil if value.nil?
 
-  def initialize(attributes = {})
-    set_defaults
-    methods
-      .filter { |m| m[-7..] == '_setter' }
-      .each do |setter|
-        key = setter[...-7].to_sym
-        method(setter).call(attributes[key]) if attributes.key? key
-      end
-  end
-
-  def attributes
-    instance_variables.each_with_object({}) do |var, acc|
-      name = var[1..].to_sym
-      acc[name] = method(name).call
-    end
-  end
-
-  def value_type_convert(value, type)
-    return nil if value.nil?
-
-    case type
-    when :datetime
-      DateTime.parse(value)
-    else
-      value
-    end
+  case type
+  when :datetime
+    DateTime.parse value
+  when :integer
+    Integer value
+  when :string
+    String value
+  when :boolean
+    !!value
+  else
+    value
   end
 end
 # END
