@@ -14,9 +14,11 @@ gem 'nokogiri-happymapper', require: 'happymapper'
 
 # gem "minitest", "~> 5.0"
 gem 'minitest-power_assert'
+gem 'webmock'
+gem 'simplecov'
 
-group :test do
-  gem 'webmock'
-end
+# group :test do
+#   gem 'webmock'
+# end
 
-gem 'simplecov', require: false, group: :test
+# gem 'simplecov', require: false, group: :test

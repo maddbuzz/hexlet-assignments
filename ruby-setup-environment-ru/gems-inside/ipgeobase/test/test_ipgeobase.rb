@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'test_helper'
-# require_relative "../lib/ipgeobase"
+require_relative '../lib/ipgeobase'
 
 MOCK_RESPONSE = "HTTP/1.1 200 OK
 Date: Tue, 10 Jan 2023 11:46:50 GMT

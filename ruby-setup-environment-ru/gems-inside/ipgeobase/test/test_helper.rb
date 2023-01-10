@@ -5,8 +5,8 @@ SimpleCov.start
 
 # Previous content of test helper now starts here
 
-# $LOAD_PATH.unshift File.expand_path("../lib", __dir__)
-# require "ipgeobase"
+$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
+require 'ipgeobase'
 
 require 'bundler/setup'
 Bundler.require
