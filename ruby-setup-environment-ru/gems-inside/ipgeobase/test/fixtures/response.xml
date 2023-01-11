@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<query>
+  <status>success</status>
+  <country>MORDOR</country>
+  <countryCode>RU</countryCode>
+  <region>SVE</region>
+  <regionName>Sverdlovsk Oblast</regionName>
+  <city>Yekaterinburg</city>
+  <zip>620042</zip>
+  <lat>56.8439</lat>
+  <lon>60.6524</lon>
+  <timezone>Asia/Yekaterinburg</timezone>
+  <isp>PJSC MegaFon</isp>
+  <org>PJSC MegaFon GPRS/UMTS Network</org>
+  <as>AS31224 PJSC MegaFon</as>
+  <query>83.169.216.199</query>
+</query>
