@@ -18,12 +18,18 @@ class TestIpgeobase < TestCase
   def setup
     @test_ip = '83.169.216.199'
     @test_uri = Ipgeobase.get_request_uri(@test_ip)
-    stub_request(:get, @test_uri)
+    @stub =
+      stub_request(:get, @test_uri)
       # .with(headers: { 'Accept' => '*/*', 'User-Agent' => 'Ruby' })
       .to_return(status: 200, body: load_fixture('response.xml'), headers: {})
   end
 
-  def test_ipgeobase
+  def test_lookup_http_query
+    Ipgeobase.lookup(@test_ip)
+    assert_requested @stub
+  end
+
+  def test_lookup_response_object
     ip_meta = Ipgeobase.lookup(@test_ip)
     assert { EXPECTED_META[:city] == ip_meta.city }
     assert { EXPECTED_META[:country] == ip_meta.country }
