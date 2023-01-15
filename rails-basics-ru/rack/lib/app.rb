@@ -11,7 +11,7 @@ module App
     Rack::Builder.new do |builder|
       builder.use AdminPolicy
       # BEGIN
-      
+      builder.use ExecutionTimer
       # END
       builder.use Signature
 
