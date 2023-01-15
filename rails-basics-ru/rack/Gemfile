@@ -1,0 +1,14 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+
+gem 'rack'
+
+gem 'logger'
+
+gem 'rack-heartbeat'
+
+gem 'minitest-power_assert'
+gem 'rack-minitest'
+gem 'rack-unreloader'
+gem 'thin'
