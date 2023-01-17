@@ -1,0 +1,34 @@
+<% #Пример комментария в erb %>
+Знак = используется для отображения значений
+params содержит переменные из пути, например /pages/:id - /pages/about
+<%= params[:id] %>
+
+<% 10.times do %>
+Для конструкций знак = не используется.
+<% end %>
+
+Рендер другого шаблона (./_about.html.erb)
+<%= render 'about' >
+
+<h1>Pages catalog</h1>
+<p>Find me in app/views/pages/index.html.erb</p>
+
+<p><a href="/pages/about">About</a></p>
+<p><a href="/pages/term_of_service">Term of service</a></p>
+
+<% # Используется хелпер link_to для формриования ссылок %>
+<p><%= link_to "About", 'pages/about' %></p>
+<p><%= link_to "Term of service", '/pages/term_of_service' %></p>
+
+<% # Используется хелпер link_to для формриования ссылок %>
+<p><%= link_to "About", 'pages/about' %></p>
+<p><%= link_to "Term of service", '/pages/term_of_service' %></p>
+
+<% # Rails создаёт для роутов хелперы для каждого урла, в их можно передать какие-либо параметры %>
+<% # Посмотреть созданные хелперы можно через bin/rails routes и на странице с неверным роутом %>
+<p><%= link_to "About", page_path(:about) %></p>
+<p><%= link_to "Term of service", page_path(:term_of_service) %></p>
+
+<% # render partial требует четкого указания пути и локальной передачи переменных %>
+<% # Обычный render использует переменные в том контексте запроса, в котором вызывается %>
+<%= render partial: "pages/partial/links", locals: {} %>
