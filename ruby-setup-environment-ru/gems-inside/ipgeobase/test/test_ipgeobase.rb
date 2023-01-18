@@ -4,7 +4,7 @@ require 'test_helper'
 
 EXPECTED_META = {
   city: 'Yekaterinburg',
-  country: 'MORDOR',
+  country: 'RUSSIA',
   countryCode: 'RU',
   lat: '56.8439',
   lon: '60.6524'
