@@ -1,0 +1,13 @@
+# require: rubocop-rails
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'bin/**'
+    - 'db/schema.rb'
+    - 'db/migrate/**'
+    - 'examples/**'
+
+# BEGIN
+
+# END

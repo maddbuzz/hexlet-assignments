@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quality</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
+  </head>
+
+  <body>
+  <ul>
+    <li><%= link_to "Home", root_path %></li>
+    <li><%= link_to 'Bulletins', bulletins_path %></li>
+  </ul>
+    <%= yield %>
+  </body>
+</html>
