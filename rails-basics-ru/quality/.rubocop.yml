@@ -1,4 +1,4 @@
-# require: rubocop-rails
+require: rubocop-rails
 
 AllCops:
   NewCops: enable
@@ -9,5 +9,12 @@ AllCops:
     - 'examples/**'
 
 # BEGIN
+Style/Documentation:
+  Enabled: false
 
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
 # END

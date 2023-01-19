@@ -30,5 +30,6 @@ gem 'rexml', '~> 3.2', '>= 3.2.4'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # BEGIN
-
+gem 'rubocop', require: false
+gem 'rubocop-rails', require: false
 # END
