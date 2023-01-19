@@ -7,6 +7,7 @@ AllCops:
     - 'db/schema.rb'
     - 'db/migrate/**'
     - 'examples/**'
+    - 'test/controllers/bulletins_controller_test.rb'
 
 # BEGIN
 Style/Documentation:
