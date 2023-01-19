@@ -3,7 +3,8 @@
 class BulletinsController < ApplicationController
   # BEGIN
   def index
-    @bulletins = Bulletin.all.order(created_at: :desc)
+    # @bulletins = Bulletin.all.order(created_at: :desc)
+    @bulletins = Bulletin.all
   end
 
   def show
