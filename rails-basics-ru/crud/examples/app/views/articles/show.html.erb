@@ -1,0 +1,12 @@
+
+
+<h1><%= @article.title %></h1>
+<p><%= @article.body %></p>
+<small>Author: <%= @article.author %> <i><%= @article.created_at.in_time_zone('Moscow').strftime("%H:%m %d.%m.%y") %></i></small>
+<hr>
+
+<%= link_to 'Back', root_path %>
+<%= link_to 'Edit', edit_article_path(@article) %>
+<%# Удаление выполняется с помощью DELETE запроса с подтверждением %>
+<%# https://apidock.com/rails/ActionView/Helpers/UrlHelper/link_to %>
+<%= link_to 'Destroy', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' } %>

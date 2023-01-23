@@ -1,0 +1,18 @@
+<%# https://guides.rubyonrails.org/form_helpers.html %>
+<%= form_with model: article do |form| %>
+  <%= form.label :title %><br>
+  <%# Содержит массив с сообщениями ошибок %>
+  <%# https://apidock.com/rails/ActiveModel/Errors/full_messages_for %>
+  <%= article.errors.full_messages_for(:title).join(' ') if article.errors.present? %>
+  <%= form.text_field :title %><br>
+
+  <%= form.label :body %><br>
+  <%= article.errors.full_messages_for(:body).join(' ') if article.errors.present? %>
+  <%= form.text_area :body %><br>
+
+  <%= form.label :author %><br>
+  <%= article.errors.full_messages_for(:author).join(' ') if article.errors.present? %>
+  <%= form.text_field :author %><br>
+  <br>
+  <%= form.submit %>
+<% end %>

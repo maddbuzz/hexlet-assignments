@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CRUD</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
+  </head>
+
+  <body>
+    <%# https://api.rubyonrails.org/classes/ActionDispatch/Flash.html %>
+    <% if flash.any? %>
+      <% flash.each do |key, value| %>
+        <div class="<%= key %>"><%= value %></div>
+        <% end %>
+    <% end %>
+    <ul>
+      <li><%= link_to 'Home', root_path %></li>
+      <%# BEGIN %>
+      
+      <%# END %>
+    </ul>
+    <%= yield %>
+  </body>
+</html>
