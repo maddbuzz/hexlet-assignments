@@ -1,78 +1,78 @@
 # frozen_string_literal: true
 
-class ArticlesController < ApplicationController
+class TasksController < ApplicationController
   def index
-    @articles = Article.order(created_at: :desc)
+    @tasks = Task.order(created_at: :desc)
   end
 
   def show
-    @article = Article.find(params[:id])
+    @task = Task.find(params[:id])
   end
 
   def new
-    @article = Article.new
+    @task = Task.new
   end
 
   def create
-    @article = Article.new(article_params)
+    @task = Task.new(task_params)
 
-    if @article.save
+    if @task.save
       # Flash сообщение
       # Сообщение рендерится в базовом шаблоне app/views/layouts/application.html.erb
       # https://api.rubyonrails.org/classes/ActionDispatch/Flash.html
-      flash[:success] = 'New article was successfully created'
+      flash[:success] = 'New task was successfully created'
       # Выполняется новый полноценный запрос
 
-      redirect_to article_path(@article)
+      redirect_to task_path(@task)
     else
-      flash[:failure] = 'Article cannot be created'
+      flash[:failure] = 'Task cannot be created'
       # Отрисовывается форма создания, все параметры остаются
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
-    @article = Article.find(params[:id])
+    @task = Task.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
+    @task = Task.find(params[:id])
 
-    if @article.update(article_params)
+    if @task.update(task_params)
       # Flash сообщение
       # https://api.rubyonrails.org/classes/ActionDispatch/Flash.html
-      flash[:success] = 'Article was successfully updated'
+      flash[:success] = 'Task was successfully updated'
       # Выполняется новый полноценный запрос
 
-      redirect_to article_path(@article)
+      redirect_to task_path(@task)
     else
-      flash[:failure] = 'Article cannot be updated'
+      flash[:failure] = 'Task cannot be updated'
       # Отрисовывается форма создания, все параметры остаются
       render :edit
     end
   end
 
   def destroy
-    @article = Article.find(params[:id])
+    @task = Task.find(params[:id])
 
-    if @article.destroy
+    if @task.destroy
       # Flash сообщение
       # https://api.rubyonrails.org/classes/ActionDispatch/Flash.html
-      flash[:success] = 'article was successfully deleted'
+      flash[:success] = 'task was successfully deleted'
       # Выполняется новый полноценный запрос
 
-      redirect_to root_path
+      redirect_to tasks_path, status: :see_other
     else
-      flash[:failure] = 'Article cannot be deleted'
+      flash[:failure] = 'Task cannot be deleted'
       # Отрисовывается форма создания, все параметры остаются
-      redirect_to article_path(@article)
+      redirect_to task_path(@task)
     end
   end
 
   private
 
-  def article_params
-    # Требуем наличия ключа :article в params. Разрешаем использовать только некоторые ключи
-    params.required(:article).permit(:title, :body, :author)
+  def task_params
+    # Требуем наличия ключа :task в params. Разрешаем использовать только некоторые ключи
+    params.required(:task).permit(:name, :status, :creator, :performer, :completed, :description)
   end
 end
