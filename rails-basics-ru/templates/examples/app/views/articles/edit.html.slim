@@ -1,0 +1,6 @@
+/ Flash отображаются из app/views/layouts/application.html.erb
+h1
+  | Edit article
+= render 'form', article: @article
+= link_to 'Back', root_path
+= link_to 'Show', article_path(@article)

@@ -1,0 +1,49 @@
+/ Это комментарий slim
+/! Этот комментарий появится в html
+/ Обычный текст
+h1 Text
+/ Всё, что за правой чертой будет распознано как текст (smart text)
+h1
+  | Articles#index
+/ Знак равно выводит содержимое ruby кода. Аналог <%= %>
+= link_to 'New Article', new_article_path
+/ Код ниже будет распознаваться как ruby код
+- @articles.each do |article|
+  / Отступы важны. Благодаря им создается вложенность
+  h2 = link_to article.title, article_path(article)
+  p = article.body
+  small
+    / John Doe, 16:12 14.12.21}
+    / Интерполяция строк
+    i #{article.author}, #{article.created_at.in_time_zone('Moscow').strftime("%H:%m %d.%m.%y")}
+  hr
+
+- danger_code = "<script>alert('boom!')</script>"
+
+/ Данынй код будет выведен как HTML на экран
+== danger_code
+
+/ Текст экранируется
+= danger_code
+
+/ Код ниже будет показан только для Internet Explorer
+/[if IE]
+  p Display text
+
+small
+  | Author: #{@article.author}
+  / знак меньше вставляет пробел перед тегом I
+  i< = @article.created_at.in_time_zone('Moscow').strftime("%H:%m %d.%m.%y")
+
+/ Двоеточие позволяет вкладывать теги на одной строке
+ul
+  li: span Link 1
+  li: span Link 2
+
+/ Через точку задаются классы у элемента
+p.card.d-flex
+/ Без указания имени элемента будет создан тег div
+.card
+
+/ Через символ решетки можно задать id
+.card#item

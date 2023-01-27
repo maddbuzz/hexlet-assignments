@@ -1,0 +1,15 @@
+<h1><%= @task.name %></h1>
+<p><%= @task.description if @task.description %></p>
+<p>Status: <%= @task.status %></p>
+<p>Completed: <%= @task.completed %></p>
+<p>Creator: <%= @task.creator %> <i><%= @task.created_at.in_time_zone('Moscow').strftime("%H:%m %d.%m.%y") %></i></p>
+<p>Performer: <%= @task.performer if @task.performer %></p>
+<hr>
+
+<ul>
+<li><%= link_to 'Back', tasks_path %></li>
+<li><%= link_to 'Edit', edit_task_path(@task) %></li>
+<%# Удаление выполняется с помощью DELETE запроса с подтверждением %>
+<%# https://apidock.com/rails/ActionView/Helpers/UrlHelper/link_to %>
+<li><%= link_to 'Destroy', task_path(@task), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+</ul>

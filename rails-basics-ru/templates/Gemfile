@@ -1,0 +1,39 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+gem 'rails', '~> 7.0'
+
+# BEGIN
+# gem 'slim-rails'
+gem 'slim-rails', git: 'https://github.com/slim-template/slim-rails'
+# END
+
+gem 'jbuilder'
+gem 'puma'
+gem 'sqlite3'
+gem 'turbolinks'
+gem 'webpacker'
+
+gem 'rexml', '~> 3.2', '>= 3.2.4'
+
+gem 'bootsnap', '>= 1.4.4', require: false
+
+group :development, :test do
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+end
+
+group :development do
+  gem 'listen', '~> 3.3'
+  gem 'rack-mini-profiler', '~> 2.0'
+  gem 'spring'
+  gem 'web-console', '>= 4.1.0'
+end
+
+group :test do
+  gem 'faker'
+  gem 'minitest-power_assert'
+end
+
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

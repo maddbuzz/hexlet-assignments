@@ -1,0 +1,10 @@
+h1 Articles#index
+= link_to 'New Article', new_article_path
+
+- @articles.each do |article|
+  h2 = link_to article.title, article_path(article)
+  p = article.body
+  small
+    / John Doe, 16:12 14.12.21}
+    i #{article.author}, #{article.created_at.in_time_zone('Moscow').strftime('%H:%m %d.%m.%y')}
+  hr
