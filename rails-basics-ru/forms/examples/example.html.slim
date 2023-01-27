@@ -1,0 +1,96 @@
+/ https://github.com/heartcombo/simple_form
+= simple_form_for article do |f|
+  = f.input :title
+  = f.input :body
+  = f.input :author
+  / text: Create/Update article
+  = f.button :submit
+/
+  <form class="simple_form new_article" id="new_article" novalidate="novalidate" action="/articles" accept-charset="UTF-8"
+    method="post"><input type="hidden" name="authenticity_token"
+      value="">
+    <div class="input string required article_title"><label class="string required" for="article_title"><abbr
+          title="required">*</abbr> Title</label><input class="string required" type="text" name="article[title]"
+        id="article_title"></div>
+    <div class="input text required article_body"><label class="text required" for="article_body"><abbr
+          title="required">*</abbr> Body</label><textarea class="text required" name="article[body]"
+        id="article_body"></textarea></div>
+    <div class="input string required article_author"><label class="string required" for="article_author"><abbr
+          title="required">*</abbr> Author</label><input class="string required" type="text" name="article[author]"
+        id="article_author"></div><input type="submit" name="commit" value="Create Article" class="btn"
+      data-disable-with="Create Article">
+  </form>
+/
+/ input выводит внутри div инпут, подсказки, ошибки
+f.input :title
+
+/ Поля отображаются обязательными, это происходит из-за валидации полей в модели
+= f.input :title, placeholder: 'Title', required: false
+/ Добавление атрибутов для лейбла, подсказки, инпута, обёртке инпута
+= f.input :body, label_html: { class: 'input-group' }, hint_html: { id: 'hint '}, input_html: {class: 'text-input'}, wrapper_html: {class: 'wrapper-class'}
+
+/ Отключение поля ввода
+= f.input :title, disabled: true
+
+/ Отображение ошибок и подсказок отдельно
+= f.input :title, placeholder: 'Title', required: false, error: false, hint: false
+= f.error :title
+= f.hint 'No special characters, please!'
+
+/ Can't be blank
+= f.error :title
+/ Title can't be blank
+= f.full_error :title
+
+
+/ input_field создаёт инпут без обертки и дополнительных выводов (ошибок, подсказок)
+= f.input_field :title
+= f.error :title
+= f.hint 'No special characters, please!'
+
+/ В зависимости от типа атрибута, будут созданы разные инпуты
+= f.input :published
+= f.input :edited_at
+/ <div class="input boolean optional article_published"><input value="0" type="hidden" name="article[published]"><label class="boolean optional checkbox" for="article_published"><input class="boolean optional" type="checkbox" value="1" name="article[published]" id="article_published">Published</label></div>
+
+/ Radio buttons
+= f.input :published, as: :radio_buttons
+/ <div class="input radio_buttons optional article_published"><label class="radio_buttons optional">Published</label><input type="hidden" name="article[published]" value=""><span class="radio"><label for="article_published_true"><input class="radio_buttons optional" type="radio" value="true" name="article[published]" id="article_published_true">Yes</label></span><span class="radio"><label for="article_published_false"><input class="radio_buttons optional" readonly="readonly" type="radio" value="false" name="article[published]" id="article_published_false">No</label></span></div>
+
+/ True по дефолту
+= f.input :published, as: :radio_buttons, checked: true
+
+/ Галочка по дефолту для чекбокса
+= f.input :published, input_html: { checked: true }
+
+/ При передаче коллекции поле становится селектом
+= f.input :title, collection: ['Title 1', 'Title 2']
+/ <div class="input select required article_title"><label class="select required" for="article_title"><abbr title="required">*</abbr> Title</label><select class="select required" name="article[title]" id="article_title"><option value="" label=" "></option>
+/ <option value="Title 1">Title 1</option>
+/ <option value="Title 2">Title 2</option></select></div>
+
+/ При передаче массива массивов первый элемент будет оторажаться для пользователя, второй - будет значением
+= f.input :title, collection: [['Title 1', 1], ['Title 2', 2]]
+
+= f.input :title, collection: [['Title 1', 1], ['Title 2', 2]]
+
+/ label_method и value_method применяются к каждому элементу чтобы получить значение и лейбл
+= f.input :gender, as: :radio_buttons, collection: [['0', 'female'], ['1', 'male']], label_method: :second, value_method: :first
+
+/ prompt - подсказка для ввода. При false будет первое значение из списка
+= f.input :title, collection: [['Title 1', 1], ['Title 2', 2]], prompt: 'Select please'
+
+/ Выбранное значение по дефолту (selected: value)
+= f.input :title, collection: [['Title 1', 1], ['Title 2', 2]], selected: 2
+
+/ Текст для кнопки вместо автогенерируемого
+= f.button :submit, 'Submit'
+
+/ Установка классов и атрибутов
+= f.button :submit, class: 'btn-success', id: 'submit'
+
+/ Создание своего инпута
+= f.input :title, as: :currency
+
+/ Также simple form позволяет создавать кастомные билдеры форм
+/ https://github.com/heartcombo/simple_form#custom-form-builder
