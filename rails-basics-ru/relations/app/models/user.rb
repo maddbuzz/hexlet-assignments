@@ -2,6 +2,6 @@
 
 class User < ApplicationRecord
   # BEGIN
-
+  has_many :tasks
   # END
 end

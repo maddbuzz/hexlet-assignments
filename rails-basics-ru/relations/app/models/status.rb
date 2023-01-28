@@ -2,6 +2,6 @@
 
 class Status < ApplicationRecord
   # BEGIN
-
+  has_many :tasks
   # END
 end

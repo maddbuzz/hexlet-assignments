@@ -1,0 +1,20 @@
+/ p style="color: green" = notice
+
+/ == render @task
+
+= content_for :title do
+  h1 Task
+  p Name: #{@task.name}
+  p Description: #{@task.description}
+  p User: #{@task.user.name}
+  p Status: #{@task.status.name}
+
+hr
+
+
+div
+  => link_to "Edit this task", edit_task_path(@task)
+  '|
+  =< link_to "Back to tasks", tasks_path
+
+  = button_to "Destroy this task", @task, method: :delete

@@ -1,0 +1,27 @@
+/ = form_with(model: @task) do |form|
+/   - if @task.errors.any?
+/     div style="color: red"
+/       h2 = "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
+/       ul
+/         - @task.errors.each do |error|
+/           li = error.full_message
+
+/   div
+/     = form.submit
+
+= simple_form_for(@task) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :name
+    = f.input :description
+    / - debugger
+    = f.association :user
+    = f.association :status
+
+  / = @task.errors.full_messages if @task.errors.present?
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-success mt-4 btn-block'
+

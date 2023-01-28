@@ -1,4 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 # BEGIN
+one:
+  id: 1
+  name: Alice
+
+two:
+  id: 2
+  name: Bob
+
+three:
+  id: 3
+  name: Vasya
 
 # END
