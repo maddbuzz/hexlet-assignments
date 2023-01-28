@@ -1,20 +1,20 @@
-/ p style="color: green" = notice
-
-/ == render @task
-
 = content_for :title do
-  h1 Task
-  p Name: #{@task.name}
-  p Description: #{@task.description}
-  p User: #{@task.user.name}
-  p Status: #{@task.status.name}
+  = @task.name
+p
+  strong.me-2 Description:
+  = @task.description
+
+p
+  strong.me-2 User:
+  = @task.user.name
+
+p
+  strong.me-2 Status:
+  = @task.status.name
 
 hr
 
-
-div
-  => link_to "Edit this task", edit_task_path(@task)
-  '|
-  =< link_to "Back to tasks", tasks_path
-
-  = button_to "Destroy this task", @task, method: :delete
+.d-flex
+  = link_to 'Edit', edit_task_path(@task), class: 'btn btn-outline-primary me-2'
+  = link_to 'Back', :back, class: 'btn btn-outline-primary'
+  

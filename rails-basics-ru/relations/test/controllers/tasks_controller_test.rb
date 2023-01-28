@@ -5,6 +5,12 @@ require 'test_helper'
 class TasksControllerTest < ActionDispatch::IntegrationTest
   setup do
     @task = tasks(:one)
+
+    @attrs = {
+      name: Faker::Movies::PrincessBride.character,
+      user_id: users(:one).id,
+      status_id: statuses(:one).id
+    }
   end
 
   test 'should get index' do
@@ -18,11 +24,12 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create task' do
-    assert_difference('Task.count') do
-      post tasks_url, params: { task: { name: 'task0', user_id: 3, status_id: 1 }, user: { id: 3 } }
-    end
+    post tasks_url, params: { task: @attrs }
 
-    assert_redirected_to task_url(Task.last)
+    task = Task.find_by @attrs
+
+    assert { task }
+    assert_redirected_to task_url(task)
   end
 
   test 'should show task' do
@@ -36,14 +43,18 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update task' do
-    patch task_url(@task), params: { task: { name: 'sadsad' } }
+    patch task_url(@task), params: { task: @attrs }
+
+    @task.reload
+
+    assert { @task.name == @attrs[:name] }
     assert_redirected_to task_url(@task)
   end
 
   test 'should destroy task' do
-    assert_difference('Task.count', -1) do
-      delete task_url(@task)
-    end
+    delete task_url(@task)
+
+    assert { !Task.exists? @task.id }
 
     assert_redirected_to tasks_url
   end
