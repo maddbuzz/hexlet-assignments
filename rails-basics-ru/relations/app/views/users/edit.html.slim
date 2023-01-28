@@ -1,0 +1,10 @@
+= content_for :title do
+  = 'Editing user'
+
+== render 'form', user: @user
+
+hr
+
+.d-flex
+  = link_to 'Show', @user, class: 'btn btn-outline-primary me-2'
+  = link_to 'Back', :back, class: 'btn btn-outline-primary'

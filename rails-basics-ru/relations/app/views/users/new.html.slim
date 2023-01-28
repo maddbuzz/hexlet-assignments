@@ -1,0 +1,8 @@
+= content_for :title do
+  = 'New user'
+
+== render 'form', user: @user
+
+hr
+
+= link_to 'Back', :back, class: 'btn btn-outline-primary'

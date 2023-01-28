@@ -1,0 +1,24 @@
+= simple_form_for article do |f|
+  = f.input :title
+  = f.input :body
+  = f.input :published
+  / Будет создан select с выбором модели
+  = f.association :author
+  = f.button :submit
+
+= simple_form_for article do |f|
+  = f.input :title
+  = f.input :body
+  = f.input :published
+  = f.association :author, as: :radio_buttons
+  = f.button :submit
+
+
+= simple_form_for article do |f|
+  = f.input :title
+  = f.input :body
+  = f.input :published
+  / В таком виде заполняются поля для связанной модели
+  = f.association :author do |a|
+    = a.input :name
+  = f.button :submit

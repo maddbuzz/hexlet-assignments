@@ -1,0 +1,21 @@
+= content_for :title do
+  = 'Statuses'
+
+table.table.table-striped.table-hover.mb-5
+  thead
+    tr
+      th{ scope = 'col' } #
+      th{ scope = 'col' } Name
+      th
+
+  tbody
+    - @statuses.each_with_index do |status, i|
+      tr
+        th{ scope = 'row' } = i + 1
+        td = status.name
+        td.d-flex
+          .me-4 = link_to 'Show', status
+          .me-4 = link_to 'Edit', edit_status_path(status)
+          = link_to 'Destroy', status, data: { confirm: 'Are you sure?' }, method: :delete
+
+= link_to 'New Status', new_status_path, class: 'btn btn-primary'

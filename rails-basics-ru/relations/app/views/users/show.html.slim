@@ -1,0 +1,11 @@
+= content_for :title do
+  = @user.name
+
+/ BEGIN
+
+/ END
+hr
+
+.d-flex
+  = link_to 'Edit', edit_user_path(@user), class: 'btn btn-outline-primary me-2'
+  = link_to 'Back', :back, class: 'btn btn-outline-primary'

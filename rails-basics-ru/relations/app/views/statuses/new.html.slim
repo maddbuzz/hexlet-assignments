@@ -1,0 +1,8 @@
+= content_for :title do
+  = 'New status'
+
+== render 'form', status: @status
+
+hr
+
+= link_to 'Back', :back, class: 'btn btn-outline-primary'

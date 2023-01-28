@@ -1,0 +1,12 @@
+h1
+  = @article.title
+p
+  = @article.body
+p = @article.published ? 'Published' : 'Draft'
+small
+  | Author: #{@article.author.name}
+  i< = @article.created_at.in_time_zone('Moscow').strftime("%H:%m %d.%m.%y")
+hr
+=> link_to 'Back', root_path
+=> link_to 'Edit', edit_article_path(@article)
+= link_to 'Destroy', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' }
