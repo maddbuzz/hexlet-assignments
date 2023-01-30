@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+
+<%= link_to 'Add new page', new_book_page_path(@book) %> |
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', root_path %>
+
+
+<h1>Pages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @book.pages.each do |page| %>
+      <tr>
+        <td><%= page.body %></td>
+        <td><%= link_to 'Edit', edit_page_path(page) %></td>
+        <td><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
