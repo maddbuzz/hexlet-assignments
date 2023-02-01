@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
 # Контроллер модуля наследуется от базового контроллера
-class Web::ApplicationController < ApplicationController
+module Web
+  class ApplicationController < ApplicationController
+  end
 end

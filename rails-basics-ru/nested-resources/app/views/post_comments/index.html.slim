@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 Post comments
+
+#post_comments
+  - @post_comments.each do |post_comment|
+    == render post_comment
+    p
+      = link_to "Show this post comment", post_comment
+
+= link_to "New post comment", new_post_comment_path

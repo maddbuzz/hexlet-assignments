@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class BooksController < ApplicationController
-  before_action :set_book, only: %i[ show edit update destroy ]
+  before_action :set_book, only: %i[show edit update destroy]
 
   # GET /books or /books.json
   def index
@@ -7,8 +9,7 @@ class BooksController < ApplicationController
   end
 
   # GET /books/1 or /books/1.json
-  def show
-  end
+  def show; end
 
   # GET /books/new
   def new
@@ -16,15 +17,14 @@ class BooksController < ApplicationController
   end
 
   # GET /books/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /books or /books.json
   def create
     @book = Book.new(book_params)
 
     if @book.save
-      redirect_to @book, notice: "Book was successfully created."
+      redirect_to @book, notice: 'Book was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1
   def update
     if @book.update(book_params)
-      redirect_to @book, notice: "Book was successfully updated."
+      redirect_to @book, notice: 'Book was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -43,7 +43,7 @@ class BooksController < ApplicationController
   def destroy
     @book.destroy
     respond_to do |format|
-      format.html { redirect_to books_url, notice: "Book was successfully destroyed." }
+      format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

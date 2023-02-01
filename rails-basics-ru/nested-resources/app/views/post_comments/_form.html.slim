@@ -1,0 +1,18 @@
+= form_with(model: @post_comment) do |form|
+  - if @post_comment.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(@post_comment.errors.count, "error")} prohibited this post_comment from being saved:"
+      ul
+        - @post_comment.errors.each do |error|
+          li = error.full_message
+
+  div
+    = form.label :body, style: "display: block"
+    = form.text_area :body
+
+  div
+    = form.label :post_id, style: "display: block"
+    = form.text_field :post_id
+
+  div
+    = form.submit
