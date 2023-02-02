@@ -1,0 +1,26 @@
+ru:
+  activerecord:
+    models:
+      # BEGIN
+      post:
+        one: Пост
+        other: Посты      
+      # END
+      post/comment: Комментарий
+
+    attributes:
+      post:
+        # BEGIN
+        title: Название
+        # END
+      post/comment:
+        body: Содержание
+
+    errors:
+      models:
+        post:
+          attributes:
+            # BEGIN
+            title:
+              blank: не может быть пустым
+            # END

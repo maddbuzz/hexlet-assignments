@@ -1,0 +1,16 @@
+ru:
+  posts:
+    # BEGIN
+    new:
+      title: Новый пост
+    # END
+
+    comments:
+      edit:
+        title: Изменить комментарий
+
+      create:
+        success: Комментарий создан.
+
+      update:
+        success: Комментарий обновлен.

@@ -1,0 +1,36 @@
+= content_for :title do
+  = @post.title
+p
+  strong.me-2 = t('.body')
+  = @post.body
+
+.mt-3
+
+  - if @post.comments.any?
+    h3
+      = t('.comments')
+
+    - @post.comments.each do |comment|
+      .card.mb-2.p-3
+        .d-flex.justify-content-between.align-items-center
+          .col-8
+            small.font-weight-bold
+              == comment.body
+          .col-4
+            small.me-2
+              = l(comment.created_at, format: :short)
+
+            = link_to t('edit'), edit_post_comment_path(@post, comment), class: 'me-2'
+
+            = link_to post_comment_path(@post, comment), method: :delete, data: { confirm: t('destroy_confirmation') } do
+              = t('destroy')
+  .my-2
+
+  = simple_form_for @post.comments.build, url: post_comments_path(@post) do |f|
+    = f.input :body, label: false, as: :text
+    = f.submit class: 'btn btn-primary'
+hr
+
+.d-flex
+  = link_to t('edit'), edit_post_path(@post), class: 'btn btn-outline-primary me-2'
+  = link_to t('back'), :back, class: 'btn btn-outline-primary'

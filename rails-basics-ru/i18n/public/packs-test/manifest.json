@@ -1,0 +1,13 @@
+{
+  "application.js": "/packs-test/js/application-6db3e45422c84e378fad.js",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "/packs-test/js/application-6db3e45422c84e378fad.js"
+      ]
+    }
+  },
+  "media/images/flag-en.svg": "/packs-test/media/images/flag-en-4839cec4896b3141f334c06fe07d863c.svg",
+  "media/images/flag-ru.svg": "/packs-test/media/images/flag-ru-d1c06b85ee41aac77053bf23b621b4c1.svg",
+  "media/images/logo.png": "/packs-test/media/images/logo-a0b86e896b6dfac8cd21d3bbef4f0153.png"
+}

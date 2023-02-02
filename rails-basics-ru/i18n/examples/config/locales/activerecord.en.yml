@@ -1,0 +1,17 @@
+en:
+  activerecord:
+    attributes:
+      user:
+        first_name: First Name
+
+    models:
+      user:
+        one: user
+        other: users
+
+    errors:
+      models:
+        user:
+          attributes:
+            first_name:
+              blank: can't be blank

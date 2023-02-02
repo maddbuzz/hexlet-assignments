@@ -1,0 +1,21 @@
+en:
+  some_html_string: <b>String contains html code</b>
+  safe_string_html: <b> Эта строка по умолчанию не экранируется _html</b>
+  welcome_title: Welcome to users CRM
+  users:
+    index:
+      all: All Users
+    all: All Users
+    first_name: First name
+    last_name: Last name
+    new_user: New User
+
+  actions:
+    confirm: Are you sure?
+    show: Show
+    edit: Edit
+    destroy: Destroy
+
+  fallback:
+    all_users: All users backup
+

@@ -1,0 +1,29 @@
+ru:
+  some_html_string: <b>Этот текст содержит html</b>
+  safe_string_html: <b> Эта строка по умолчанию не экранируется _html</b>
+  welcome_title: Добро пожаловать в CRM для пользователей
+  users:
+    index:
+      all: Все пользователи
+      created_count:
+        one: Создан %{count} пользователь
+        other: Создано %{count} пользователя
+    all: Все пользователи
+    first_name: Имя
+    last_name: Фамилия
+    new_user: Новый пользователь
+
+  actions:
+    confirm: Вы уверены?
+    show: Показать
+    edit: Изменить
+    destroy: Удалить
+
+  fallback:
+    all_users: Все пользователи запасной
+
+  # Переводы кнопок simple_form
+  helpers:
+    submit:
+      user:
+        create: "Создать пользователя"
