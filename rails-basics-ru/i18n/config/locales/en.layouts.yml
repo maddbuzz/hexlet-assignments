@@ -1,0 +1,10 @@
+en:
+  layouts:
+    application:
+      title: 'Internationalization'
+      hexlet_title: © Hexlet, %{year}
+    shared:
+      nav:
+        hexlet_logo: Hexlet logo
+        home: Home
+        posts: Posts

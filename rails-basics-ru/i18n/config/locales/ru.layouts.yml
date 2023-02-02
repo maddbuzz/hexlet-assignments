@@ -1,0 +1,11 @@
+---
+ru:
+  layouts:
+    application:
+      title: 'Интернационализация'
+      hexlet_title: © Хекслет, %{year}
+    shared:
+      nav:
+        hexlet_logo: Hexlet logo
+        home: Домой
+        posts: Посты

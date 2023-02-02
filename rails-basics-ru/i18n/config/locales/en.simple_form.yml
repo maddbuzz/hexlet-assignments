@@ -9,8 +9,9 @@ en:
       default_message: "Please check the problems:"
     placeholders:
       # BEGIN
-      
+      post:
+        title: Enter post title
+        body: Enter post body
       # END
       post_comment:
         body: Enter comment body
-h

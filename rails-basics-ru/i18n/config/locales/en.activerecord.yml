@@ -2,15 +2,14 @@ en:
   activerecord:
     models:
       # BEGIN
-      post:
-        one: Post
-        other: Posts      
+      post: Post
       # END
       post/comment: Comment
     attributes:
       # BEGIN
       post:
         title: Title
+        body: Body
       # END
       post/comment:
         body: Body
@@ -21,5 +20,5 @@ en:
           attributes:
             # BEGIN
             title:
-              blank: can't be empty
+              blank: should be filled
             # END

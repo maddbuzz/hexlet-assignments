@@ -15,7 +15,7 @@ gem 'simple_form'
 gem 'slim-rails'
 
 # BEGIN
-gem 'rails-i18n', '~> 7.0.0' # For 7.0.0
+gem 'rails-i18n'
 # END
 
 group :development, :test do
@@ -30,7 +30,7 @@ group :development do
   gem 'web-console', '>= 4.1.0'
 
   # BEGIN
-  gem 'i18n-debug', group: :development
+  gem 'i18n-debug'
   # END
 end
 

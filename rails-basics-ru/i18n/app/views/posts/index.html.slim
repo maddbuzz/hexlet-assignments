@@ -1,7 +1,7 @@
 - content_for :title do
   / page title (h2)
   / BEGIN
-  
+  = t('.title')
   / END
 
 table.table.table-striped.table-hover.mb-5
@@ -11,7 +11,7 @@ table.table.table-striped.table-hover.mb-5
       th{ scope = 'col' }
         / table title
         / BEGIN
-        
+        = t('.table_title')
         / END
       th
       th
@@ -24,16 +24,18 @@ table.table.table-striped.table-hover.mb-5
         td
           / comments count
           / BEGIN
-          
+          = t('.comment_count', count: post.comments.size)
           / END
         td.d-flex
           / posts links
           / BEGIN
-          
+          = link_to t('show'), post, class: 'me-4'
+          = link_to t('edit'), edit_post_path(post), class: 'me-4'
+          = link_to t('destroy'), post, data: { confirm: t('destroy_confirmation') }, method: :delete
           / END
 
 / new post link
 = link_to new_post_path, id: 'new-post-link', class: 'btn btn-primary' do
   / BEGIN
-  
+  = t('.new_post')
   / END

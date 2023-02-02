@@ -1,3 +1,4 @@
+---
 ru:
   simple_form:
     "yes": 'ДА'
@@ -9,7 +10,9 @@ ru:
       default_message: "Пожалуйста, исправьте ошибки:"
     placeholders:
       # BEGIN
-      
+      post:
+        title: Название
+        body: Текст
       # END
       post_comment:
         body: Текст
