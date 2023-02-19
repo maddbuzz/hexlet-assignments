@@ -40,5 +40,20 @@ class PostsTest < ApplicationSystemTestCase
     click_on 'Destroy', match: :first
     assert_text 'Post was successfully destroyed'
   end
+
+  test 'creating an comment' do
+    comment_text = Faker::Movies::StarWars.quote
+    post = posts :without_comments
+    visit post_url(post)
+
+    assert_text post.title
+    assert_text post.body
+
+    find('#post_comment_body').set(comment_text)
+
+    click_on 'Create Comment'
+    
+    assert_text comment_text
+  end  
 end
 # END
