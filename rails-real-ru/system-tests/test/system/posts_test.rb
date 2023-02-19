@@ -52,8 +52,8 @@ class PostsTest < ApplicationSystemTestCase
     find('#post_comment_body').set(comment_text)
 
     click_on 'Create Comment'
-    
+
     assert_text comment_text
-  end  
+  end
 end
 # END
