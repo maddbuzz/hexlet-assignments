@@ -1,0 +1,10 @@
+= content_for :title do
+  = 'Editing comment'
+
+== render 'form', post: @post, comment: @comment
+
+hr
+
+.d-flex
+  = link_to 'Show', @post, class: 'btn btn-outline-primary me-2'
+  = link_to 'Back', :back, class: 'btn btn-outline-primary'

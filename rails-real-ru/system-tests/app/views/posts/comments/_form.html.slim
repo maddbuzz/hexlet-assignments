@@ -1,0 +1,7 @@
+= simple_form_for comment, url: post_comment_path(post, comment) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  = f.input :body
+
+  = f.button :submit, class: 'btn btn-success mt-4 btn-block'
