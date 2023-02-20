@@ -1,0 +1,8 @@
+= content_for :title do
+  = 'New vacancy'
+
+== render 'form', vacancy: @vacancy
+
+hr
+
+= link_to 'Back', :back, class: 'btn btn-outline-primary'

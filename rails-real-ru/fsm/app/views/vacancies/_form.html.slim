@@ -1,0 +1,8 @@
+= simple_form_for(vacancy) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  = f.input :title, input_html: { class: 'form-control' }, label_html: { class: 'form-label' }
+  = f.input :description, input_html: { class: 'form-control' }, label_html: { class: 'form-label' }
+
+  = f.button :submit, class: 'btn btn-success mt-4 btn-block'

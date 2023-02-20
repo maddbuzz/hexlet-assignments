@@ -1,0 +1,40 @@
+= content_for :title do
+  = 'Vacancies'
+
+h2 On moderate
+
+table.table.table-striped.table-hover.mb-5
+  thead
+    tr
+      th Title
+      th Description
+      th Action
+
+  tbody
+    - @on_moderate.each do |vacancy|
+      tr
+        td = vacancy.title
+        td = vacancy.description
+        td.d-flex
+          / BEGIN
+          
+          / END
+
+h2 Published
+
+table.table.table-striped.table-hover.mb-5
+  thead
+    tr
+      th Title
+      th Description
+      th Action
+
+  tbody
+    - @published.each do |vacancy|
+      tr
+        td = vacancy.title
+        td = vacancy.description
+        td.d-flex
+          .me-4 = link_to 'Archive', archive_vacancy_path(vacancy), method: :patch
+
+= link_to 'New Vacancy', new_vacancy_path, class: 'btn btn-primary'
