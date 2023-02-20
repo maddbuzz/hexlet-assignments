@@ -17,7 +17,8 @@ table.table.table-striped.table-hover.mb-5
         td = vacancy.description
         td.d-flex
           / BEGIN
-          
+          .me-4 = link_to 'Publish vacancy', publish_vacancy_path(vacancy), method: :patch
+          .me-4 = link_to 'Archive vacancy', archive_vacancy_path(vacancy), method: :patch
           / END
 
 h2 Published
@@ -36,5 +37,20 @@ table.table.table-striped.table-hover.mb-5
         td = vacancy.description
         td.d-flex
           .me-4 = link_to 'Archive', archive_vacancy_path(vacancy), method: :patch
+
+h2 Archived
+
+table.table.table-striped.table-hover.mb-5
+  thead
+    tr
+      th Title
+      th Description
+      th Action
+
+  tbody
+    - @archived.each do |vacancy|
+      tr
+        td = vacancy.title
+        td = vacancy.description
 
 = link_to 'New Vacancy', new_vacancy_path, class: 'btn btn-primary'
