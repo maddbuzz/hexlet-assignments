@@ -1,0 +1,9 @@
+= simple_form_for(post) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  = f.input :title
+  = f.input :body
+  = f.input :aasm_state, as: :select, collection: Post.aasm.states.map(&:name)
+
+  = f.button :submit, class: 'btn btn-success mt-4 btn-block'

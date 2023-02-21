@@ -1,0 +1,14 @@
+= content_for :title do
+  = @post.title
+p
+  strong.me-2 Body:
+  = @post.body
+p
+  strong.me-2 State:
+  = @post.aasm.current_state
+
+hr
+
+.d-flex
+  = link_to 'Edit', edit_post_path(@post), class: 'btn btn-outline-primary me-2'
+  = link_to 'Back', :back, class: 'btn btn-outline-primary'
