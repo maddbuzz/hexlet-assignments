@@ -5,7 +5,26 @@
 
 .p-3.bg-light
   / BEGIN
-  
+  = search_form_for @q do |f|
+    .row.my-2.align-items-center
+      .col-5
+        = f.input :title_cont
+      .col-5
+        / Для вывода списка состояний можно выполнить map() на списке состояний.
+        = f.input :aasm_state_eq, as: :select, collection: Post.aasm.states.map(&:name)
+      .col-2
+        = f.submit 'Search', class: 'btn btn-primary me-2'
+        = link_to 'Reset', url_for, class: 'btn btn-outline-primary'
+
+  / = simple_form_for(@q, data: { turbo: false }) do |f|
+  /   = f.error_notification
+  /   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  /   .form-inputs
+  /     = f.input :title_cont
+
+  /   .form-actions
+  /     = f.button :submit, 'Search', class: 'btn-primary'
   / END
 
 table.table.table-striped.table-hover.mb-5

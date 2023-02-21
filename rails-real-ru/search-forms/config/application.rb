@@ -17,7 +17,7 @@ require 'action_cable/engine'
 require 'rails/test_unit/railtie'
 
 # BEGIN
-
+ENV['RANSACK_FORM_BUILDER'] = '::SimpleForm::FormBuilder'
 # END
 
 # Require the gems listed in Gemfile, including any gems
