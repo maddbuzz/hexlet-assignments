@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  resume: one
+  institution: MyString
+  faculty: MyString
+  begin_date: 2021-08-06
+  end_date: 2021-08-06
+
+two:
+  resume: two
+  institution: MyString
+  faculty: MyString
+  begin_date: 2021-08-06
+  end_date: 2021-08-06

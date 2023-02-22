@@ -1,0 +1,25 @@
+= simple_form_for(resume) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  = f.input :name
+  = f.input :contact
+  = f.input :github_url
+  = f.input :summary, input_html: { rows: 10 }
+
+  hr
+
+  h3.my-4 = 'Education'
+  #education
+    / BEGIN
+    
+    / END
+
+  h3.my-4 = 'Work'
+  #work
+    = f.simple_fields_for :works do |work|
+      = render 'work_fields', f: work
+    .links.my-1
+      = link_to_add_association 'Add work item', f, :works
+
+  = f.button :submit, class: 'btn btn-success mt-4 btn-block'

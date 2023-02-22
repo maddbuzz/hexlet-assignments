@@ -1,0 +1,10 @@
+= content_for :title do
+  = 'Editing resume'
+
+== render 'form', resume: @resume
+
+hr
+
+.d-flex
+  = link_to 'Show', @resume, class: 'btn btn-outline-primary me-2'
+  = link_to 'Back', :back, class: 'btn btn-outline-primary'

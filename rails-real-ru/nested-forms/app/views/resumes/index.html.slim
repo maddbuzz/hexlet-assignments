@@ -1,0 +1,23 @@
+= content_for :title do
+  = 'Resumes'
+
+table.table.table-striped.table-hover.mb-5
+  thead
+    tr
+      th{ scope = 'col' } #
+      th{ scope = 'col' } Name
+      th{ scope = 'col' } Contact
+      th
+
+  tbody
+    - @resumes.each_with_index do |resume, i|
+      tr
+        th{ scope = 'row' } = i + 1
+        td = resume.name
+        td = resume.contact
+        td.d-flex
+          .me-4 = link_to 'Show', resume
+          .me-4 = link_to 'Edit', edit_resume_path(resume)
+          = link_to 'Destroy', resume, data: { confirm: 'Are you sure?' }, method: :delete
+
+= link_to 'New Resume', new_resume_path, class: 'btn btn-primary'

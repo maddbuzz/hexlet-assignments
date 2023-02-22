@@ -1,0 +1,56 @@
+= content_for :title do
+  = @resume.name
+
+.d-flex
+  h4.my-4.me-3 = 'Basic'
+  hr.my-auto.w-100
+
+.row.mb-3
+  .col-sm-3
+    b = 'Contact'
+  .col-sm-9
+    == @resume.contact
+
+.row.mb-3
+  .col-sm-3
+    b = 'Githab'
+  .col-sm-9
+    == @resume.github_url
+
+.row.mb-3
+  .col-sm-3
+    b = 'Summary'
+  .col-sm-9
+    == @resume.summary
+
+- if @resume_educations.any?
+  .d-flex
+    h4.my-4.me-3 = 'Education'
+    hr.my-auto.w-100
+
+  - @resume_educations.each do |education|
+    .mb-4
+      = education.institution
+      .small.text-muted.mt-1.mb-2
+        = l education.begin_date, format: :discard_day
+        - if education.end_date
+          | &nbsp;-&nbsp;
+          = l education.end_date, format: :discard_day
+
+- if @resume_works.any?
+  .d-flex
+    h4.my-4.me-3 = 'Work'
+    hr.my-auto.w-100
+
+  - @resume_works.each do |work|
+    .mb-4
+      b = work.company
+      .small.text-muted.mt-1.mb-2
+        = l work.begin_date, format: :discard_day
+        - if work.end_date
+          | &nbsp;-&nbsp;
+          = l work.end_date, format: :discard_day
+
+.d-flex
+  = link_to 'Edit', edit_resume_path(@resume), class: 'btn btn-outline-primary me-2'
+  = link_to 'Back', :back, class: 'btn btn-outline-primary'
