@@ -2,7 +2,7 @@ setup:
 	bin/setup
 
 start:
-	bin/rails s -p 3000 -b "0.0.0.0"
+	bin/rails s -p 3000 -b "127.0.0.1"
 
 console:
 	bin/rails console
