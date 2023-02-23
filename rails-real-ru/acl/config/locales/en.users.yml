@@ -1,0 +1,10 @@
+---
+en:
+  users:
+    index:
+      new_user: New user
+      users: Users
+    show:
+      email: Email
+      is_admin: Is Admin?
+      posts: Posts

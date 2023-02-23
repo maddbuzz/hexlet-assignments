@@ -1,0 +1,15 @@
+---
+en:
+  layouts:
+    application:
+      hexlet_title: "© Hexlet, %{year}"
+      title: ACL
+    shared:
+      nav:
+        hexlet_logo: Hexlet logo
+        home: Home
+        login: Login
+        posts: Posts
+        sign_out: Sign Out
+        signup: Sign Up
+        users: Users

@@ -1,0 +1,20 @@
+---
+ru:
+  posts:
+    create:
+      success: Пост создан.
+    destroy:
+      success: Пост удален.
+    edit:
+      title: Редактировать пост
+    index:
+      new_post: Новый пост
+      table_title: Название
+      title: Посты
+    new:
+      title: Новый пост
+    show:
+      author: Автор
+      body: Содержание
+    update:
+      success: Пост обновлен.

@@ -1,0 +1,18 @@
+---
+en:
+  activerecord:
+    attributes:
+      post:
+        body: Body
+        title: Title
+      post/comment:
+        body: Body
+    errors:
+      models:
+        post:
+          attributes:
+            title:
+              blank: should be filled
+    models:
+      post: Post
+      post/comment: Comment

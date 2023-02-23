@@ -1,0 +1,30 @@
+= content_for :title do
+  / page title (h2)
+  = t('.title')
+
+table.table.table-striped.table-hover.mb-5
+  thead
+    tr
+      th{ scope = 'col' } #
+      th
+        / table title
+        = t('.table_title')
+      th
+      th
+
+  tbody
+    - @posts.each_with_index do |post, i|
+      tr
+        th{ scope = 'row' } = i + 1
+        td = post.title
+        td.d-flex
+          / posts links
+          = link_to t('show'), post, class: 'me-4'
+          / BEGIN
+          
+          / END
+
+/ new post link
+/ BEGIN
+
+/ END

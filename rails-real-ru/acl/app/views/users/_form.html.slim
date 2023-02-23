@@ -1,0 +1,10 @@
+= simple_form_for(user) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  = f.input :name
+  = f.input :email
+  = f.input :password
+  = f.input :password_confirmation
+
+  = f.button :submit, class: 'btn btn-success mt-4 btn-block'

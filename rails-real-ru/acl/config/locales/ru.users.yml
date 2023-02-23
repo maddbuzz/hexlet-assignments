@@ -1,0 +1,10 @@
+---
+ru:
+  users:
+    index:
+      new_user: Новый пользователь
+      users: Пользователи
+    show:
+      email: Почта
+      is_admin: Админ?
+      posts: Посты

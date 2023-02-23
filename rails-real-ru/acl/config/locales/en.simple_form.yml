@@ -1,0 +1,16 @@
+---
+en:
+  simple_form:
+    error_notification:
+      default_message: 'Please check the problems:'
+    'no': 'No'
+    placeholders:
+      post:
+        body: Enter post body
+        title: Enter post title
+      post_comment:
+        body: Enter comment body
+    required:
+      mark: "*"
+      text: required
+    'yes': 'Yes'

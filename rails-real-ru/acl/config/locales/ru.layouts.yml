@@ -1,0 +1,15 @@
+---
+ru:
+  layouts:
+    application:
+      hexlet_title: "© Хекслет, %{year}"
+      title: ACL
+    shared:
+      nav:
+        hexlet_logo: Hexlet logo
+        home: Домой
+        login: Вход
+        posts: Посты
+        sign_out: Выход
+        signup: Регистрация
+        users: Пользователи

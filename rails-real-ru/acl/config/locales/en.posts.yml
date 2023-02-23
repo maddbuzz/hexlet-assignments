@@ -1,0 +1,20 @@
+---
+en:
+  posts:
+    create:
+      success: Post was created.
+    destroy:
+      success: Post was destroyed.
+    edit:
+      title: Editing post
+    index:
+      new_post: New Post
+      table_title: Title
+      title: Posts
+    new:
+      title: New Post
+    show:
+      author: Author
+      body: Body
+    update:
+      success: Post was updated.
