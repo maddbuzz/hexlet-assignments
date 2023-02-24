@@ -2,14 +2,6 @@
 
 class PostPolicy < ApplicationPolicy
   # BEGIN
-  def index?
-    true
-  end
-
-  def show?
-    true
-  end
-
   def create?
     !user.nil?
   end
@@ -19,7 +11,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def update?
-    user&.admin? || record.author_id == user&.id
+    user&.admin? || record.author == user
   end
 
   def edit?

@@ -9,24 +9,22 @@ class PostsController < ApplicationController
   end
 
   def show
-    set_post
+    @post = Post.find(params[:id])
   end
 
   def new
-    raise Pundit::NotAuthorizedError, 'guest should raise error from new' unless signed_in?
-
+    # @post = Post.new
+    # authorize @post
+    authorize Post
     @post = current_user.posts.build
-    authorize @post
   end
 
   def create
-    raise Pundit::NotAuthorizedError, 'guest cant create post' unless signed_in?
-
+    authorize Post
     @post = current_user.posts.build(post_params)
-    authorize @post
 
     if @post.save
-      redirect_to @post, notice: 'Post was successfully created.'
+      redirect_to @post, notice: t('.success')
     else
       render :new, status: :unprocessable_entity
     end
@@ -40,7 +38,7 @@ class PostsController < ApplicationController
     set_post
 
     if @post.update(post_params)
-      redirect_to @post
+      redirect_to @post, notice: t('.success')
     else
       render :edit
     end
@@ -49,7 +47,7 @@ class PostsController < ApplicationController
   def destroy
     set_post
     @post.destroy
-    redirect_to posts_url, notice: 'Post was successfully destroyed.'
+    redirect_to posts_url, notice: t('.success')
   end
 
   private
@@ -60,11 +58,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(
-      :title,
-      :body,
-      :author_id
-    )
+    params.require(:post).permit(:title, :body)
   end
   # END
 end

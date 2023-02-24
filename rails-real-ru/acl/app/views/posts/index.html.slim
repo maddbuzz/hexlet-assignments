@@ -22,13 +22,13 @@ table.table.table-striped.table-hover.mb-5
           = link_to t('show'), post, class: 'me-4'
           / BEGIN
           - if policy(post).update?
-            = link_to 'Edit post', edit_post_path(post), class: 'me-4'
+            = link_to t('edit'), edit_post_path(post), class: 'me-4'
           - if policy(post).destroy?
-            = link_to 'Destroy post', post_path(post), method: :delete, class: 'me-4'
+            = link_to t('destroy'), post_path(post), data: { confirm: t('destroy_confirmation') }, method: :delete, class: 'link-danger'
           / END
 
 / new post link
 / BEGIN
 - if policy(Post).new?
-  = link_to "Create post", new_post_path
+  = link_to t('.new_post'), new_post_path
 / END
