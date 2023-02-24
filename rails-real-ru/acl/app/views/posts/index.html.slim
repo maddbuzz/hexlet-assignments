@@ -21,10 +21,14 @@ table.table.table-striped.table-hover.mb-5
           / posts links
           = link_to t('show'), post, class: 'me-4'
           / BEGIN
-          
+          - if policy(post).update?
+            = link_to 'Edit post', edit_post_path(post), class: 'me-4'
+          - if policy(post).destroy?
+            = link_to 'Destroy post', post_path(post), method: :delete, class: 'me-4'
           / END
 
 / new post link
 / BEGIN
-
+- if policy(Post).new?
+  = link_to "Create post", new_post_path
 / END
