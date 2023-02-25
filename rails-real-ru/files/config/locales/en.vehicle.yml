@@ -1,0 +1,23 @@
+---
+en:
+  vehicles:
+    edit:
+      title: Edit Vehicle
+    index:
+      color: Color
+      doors: Doors
+      kilometrage: Kilometrage
+      manufacture: Manufacture
+      model: Model
+      new_vehicle: New Vehicle
+      preview: Preview
+      production_year: Year
+      title: Vehicles
+    new:
+      title: New Vehicle
+    show:
+      color: 'Color:'
+      doors: 'Door:'
+      kilometrage: 'Kilometrage:'
+      manufacture: 'Manufacture:'
+      production_year: 'Production Year:'

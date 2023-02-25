@@ -1,0 +1,23 @@
+---
+ru:
+  vehicles:
+    edit:
+      title: Редактировать автомобиль
+    index:
+      color: Цвет
+      doors: Дверей
+      kilometrage: Пробег
+      manufacture: Производитель
+      model: Модель
+      new_vehicle: Добавить автомобиль
+      preview: Изображение
+      production_year: Год
+      title: Автомобили
+    new:
+      title: Добавление автомобиля
+    show:
+      color: 'Цвет:'
+      doors: 'Дверей:'
+      kilometrage: 'Пробег:'
+      manufacture: 'Производитель:'
+      production_year: 'Год изготовления:'

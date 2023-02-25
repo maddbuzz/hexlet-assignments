@@ -1,0 +1,11 @@
+---
+en:
+  layouts:
+    application:
+      hexlet_title: "© Hexlet, %{year}"
+      title: Files
+    shared:
+      nav:
+        hexlet_logo: Hexlet logo
+        home: Home
+        vehicles: Vehicles

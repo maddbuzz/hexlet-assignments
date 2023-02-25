@@ -1,0 +1,14 @@
+---
+en:
+  activerecord:
+    attributes:
+      vehicle:
+        color: Color
+        doors: Doors
+        image: Image
+        kilometrage: Kilometrage
+        manufacture: Manufacture
+        model: Model
+        production_year: Production Year
+    models:
+      vehicle: Vehicle

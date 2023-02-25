@@ -1,0 +1,11 @@
+---
+ru:
+  layouts:
+    application:
+      hexlet_title: "© Хекслет, %{year}"
+      title: Файлы
+    shared:
+      nav:
+        hexlet_logo: Hexlet logo
+        home: Домой
+        vehicles: Автомобили

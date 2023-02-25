@@ -1,0 +1,37 @@
+= content_for :title do
+  = t('.title')
+
+= link_to t('.new_vehicle'), new_vehicle_path, class: 'btn btn-primary my-2'
+
+table.table.table-striped.table-hover.mb-5
+  thead
+    tr
+      th{ scope = 'col' } #
+      th{ scope = 'col' } = t('.manufacture')
+      th{ scope = 'col' } = t('.model')
+      th{ scope = 'col' } = t('.color')
+      th{ scope = 'col' } = t('.doors')
+      th{ scope = 'col' } = t('.kilometrage')
+      th{ scope = 'col' } = t('.production_year')
+      th{ scope = 'col' } = t('.preview')
+      th
+
+  tbody
+    - @vehicles.each_with_index do |vehicle, i|
+      tr
+        th{ scope = 'row' } = i + 1
+        td = vehicle.manufacture
+        td = vehicle.model
+        td = vehicle.color
+        td = vehicle.doors
+        td = vehicle.kilometrage
+        td = vehicle.production_year
+        td
+          - if vehicle.image_attachment
+            = image_tag vehicle.image.variant(resize_to_limit: [200, 100]), class: 'img-thumbnail'
+        td.d-flex
+          = link_to t('show'), vehicle, class: 'me-4'
+          = link_to t('edit'), edit_vehicle_path(vehicle), class: 'me-4'
+          = link_to t('destroy'), vehicle, data: { confirm: t('destroy_confirmation') }, method: :delete
+
+= link_to t('.new_vehicle'), new_vehicle_path, class: 'btn btn-primary'

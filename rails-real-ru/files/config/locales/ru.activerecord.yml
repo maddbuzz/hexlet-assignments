@@ -1,0 +1,14 @@
+---
+ru:
+  activerecord:
+    attributes:
+      vehicle:
+        color: Цвет
+        doors: Дверей
+        image: Изображение
+        kilometrage: Пробег
+        manufacture: Производитель
+        model: Модель
+        production_year: Год
+    models:
+      vehicle: Автомобиль
