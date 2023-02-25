@@ -8,6 +8,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'faker'
+
 20.times do |_i|
   Vehicle.create!(
     manufacture: Faker::Vehicle.manufacture,
@@ -15,6 +17,7 @@
     color: Faker::Vehicle.color,
     doors: Faker::Vehicle.doors,
     kilometrage: Faker::Vehicle.kilometrage,
-    production_year: Faker::Vehicle.year
+    # production_year: Date.new(Faker::Vehicle.year)
+    production_year: Faker::Date.backward
   )
 end

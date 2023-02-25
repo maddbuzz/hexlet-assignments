@@ -14,6 +14,7 @@
   - if vehicle.image_attachment
     = image_tag vehicle.image.variant(resize_to_limit: [200, 100]), class: 'img-thumbnail mb-2'
   / BEGIN
-  
+  / = f.file_field :image, multiple: false
+  = f.input :image, as: :file
   / END
   = f.button :submit, class: 'btn btn-success mt-4 btn-block'
