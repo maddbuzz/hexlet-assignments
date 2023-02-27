@@ -1,0 +1,8 @@
+---
+ru:
+  user_mailer:
+    account_activation:
+      confirm: Завершить регистрацию
+      congratulation: Здравствуйте, %{user_name}!
+      subject: Завершение регистрации
+      welcome_text: Добро пожаловать на наш тестовый сайт. Для завершения регистрации перейдите по ссылке ниже

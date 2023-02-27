@@ -1,0 +1,7 @@
+---
+ru:
+  sessions:
+    create:
+      inсorrect: Пароль не подходит. Проверьте раскладку.
+    new:
+      sign_in: Войти

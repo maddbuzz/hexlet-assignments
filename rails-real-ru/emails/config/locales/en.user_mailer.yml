@@ -1,0 +1,8 @@
+---
+en:
+  user_mailer:
+    account_activation:
+      confirm: Complete registration
+      congratulation: Hello, %{user_name}!
+      subject: Registration complete
+      welcome_text: Welcome to our test site. To complete registration follow the link below

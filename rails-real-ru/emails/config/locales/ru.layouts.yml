@@ -1,0 +1,14 @@
+---
+ru:
+  layouts:
+    application:
+      hexlet_title: "© Хекслет, %{year}"
+      title: Письма
+    shared:
+      nav:
+        about: Обо мне
+        hexlet_logo: Hexlet logo
+        home: Домой
+        login: Вход
+        sign_out: Выход
+        signup: Регистрация

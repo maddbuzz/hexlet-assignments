@@ -1,0 +1,14 @@
+---
+en:
+  layouts:
+    application:
+      hexlet_title: "© Hexlet, %{year}"
+      title: Emails
+    shared:
+      nav:
+        about: About
+        hexlet_logo: Hexlet logo
+        home: Home
+        login: Login
+        sign_out: Sign Out
+        signup: Sign Up

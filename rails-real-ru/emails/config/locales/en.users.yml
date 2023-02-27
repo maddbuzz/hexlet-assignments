@@ -1,0 +1,15 @@
+---
+en:
+  users:
+    confirm:
+      activate_problems: There were problems. Contact the site administrator
+      activated: Congratulations! Account successfully activated
+    create:
+      waiting_confirmation: 'An email was sent to your email with a link to verify your account
+
+'
+    new:
+      sign_up: Sign Up
+    show:
+      email: Email
+      require_activation: Account confirmation required. Please check your mail

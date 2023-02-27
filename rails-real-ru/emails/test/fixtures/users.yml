@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+DEFAULTS: &DEFAULTS
+  name: $LABEL
+  password_digest: <%= BCrypt::Password.create('password') %>
+  email: $LABEL@test.io
+  aasm_state: waiting_confirmation
+
+one:
+  <<: *DEFAULTS
+  confirmation_token: <%= SecureRandom.urlsafe_base64 %>
+
+two:
+  <<: *DEFAULTS
+  confirmation_token: <%= SecureRandom.urlsafe_base64 %>
+
+three:
+  <<: *DEFAULTS
+  confirmation_token: <%= SecureRandom.urlsafe_base64 %>
+
+waiting_confirmation:
+  <<: *DEFAULTS
+  confirmation_token: <%= SecureRandom.urlsafe_base64 %>

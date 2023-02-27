@@ -1,0 +1,7 @@
+---
+en:
+  sessions:
+    create:
+      inсorrect: Wrong password. Check your keyboard layout.
+    new:
+      sign_in: Sign In
