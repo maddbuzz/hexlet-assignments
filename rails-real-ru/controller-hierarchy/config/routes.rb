@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
     resources :movies do
       # BEGIN
-      
+      # scope module: :movies, shallow: true do
+      scope module: :movies do
+        resources :comments, except: [:show]
+        resources :reviews, except: [:show]
+      end
       # END
     end
 

@@ -28,7 +28,7 @@ class Web::Movies::ReviewsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create' do
     post movie_reviews_url(@movie), params: { review: @review_params }
-
+    # debugger
     review = Review.find_by @review_params
 
     assert { review }
