@@ -1,0 +1,19 @@
+---
+ru:
+  web:
+    movies:
+      destroy:
+        fail: Ошибка
+        success: Успешно
+      edit:
+        edit_movie: Редактировать фильм
+      index:
+        movies: Фильмы
+        new_movie: Новый фильм
+        title: название
+      new:
+        new_movie: Новый фильм
+      show:
+        description: Описание
+        go_to_comments: Комментарии фильма
+        go_to_reviews: Обзоры фильма

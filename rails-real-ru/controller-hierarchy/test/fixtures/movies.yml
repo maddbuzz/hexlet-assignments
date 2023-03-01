@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+star_wars:
+  title: Star Wars
+  description: May the Force be with you
+
+lord_of_the_rings:
+  title: Lord of the rings
+  description: Power can be held in the smallest of things...к

@@ -1,0 +1,9 @@
+---
+ru:
+  back: Назад
+  destroy: Удалить
+  destroy_confirmation: Вы уверены?
+  edit: Редактировать
+  fail: Ошибка
+  show: Открыть
+  success: Успех

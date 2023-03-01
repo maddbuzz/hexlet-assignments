@@ -1,0 +1,13 @@
+---
+ru:
+  layouts:
+    web:
+      application:
+        hexlet_title: "© Хекслет, %{year}"
+        title: Иерархия контроллеров
+      shared:
+        nav:
+          hexlet_logo: Hexlet logo
+          home: Домой
+          movies: Фильмы
+          reviews: Обзоры

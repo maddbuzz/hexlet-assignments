@@ -1,0 +1,19 @@
+---
+en:
+  web:
+    movies:
+      destroy:
+        fail: Fail
+        success: Success
+      edit:
+        edit_movie: Edit movie
+      index:
+        movies: Movies
+        new_movie: New movie
+        title: Title
+      new:
+        new_movie: New movie
+      show:
+        description: Description
+        go_to_comments: Show movie comments
+        go_to_reviews: Show movie reviews

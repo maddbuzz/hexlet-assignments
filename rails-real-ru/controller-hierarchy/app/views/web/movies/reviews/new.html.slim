@@ -1,0 +1,8 @@
+- content_for :title do
+  = t('.new_movie_review')
+
+== render 'form', review: @review
+
+hr
+
+= link_to 'Back', :back, class: 'btn btn-outline-primary'

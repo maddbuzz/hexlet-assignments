@@ -1,0 +1,8 @@
+= content_for :title do
+  = t('.new_movie')
+
+== render 'form', movie: @movie
+
+hr
+
+= link_to 'Back', :back, class: 'btn btn-outline-primary'

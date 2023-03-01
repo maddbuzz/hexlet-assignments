@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: Best of the Best
+  movie: lord_of_the_rings
+
+two:
+  body: Super!!!
+  movie: lord_of_the_rings

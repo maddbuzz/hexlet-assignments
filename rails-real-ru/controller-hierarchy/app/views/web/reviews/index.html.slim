@@ -1,0 +1,8 @@
+= content_for :title do
+  = t('.reviews')
+
+- @reviews.each do |review|
+  card
+    .card-body
+      .card-title = link_to review.movie.title, movie_path(review.movie)
+      .card-text = review.body

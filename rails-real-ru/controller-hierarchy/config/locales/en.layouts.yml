@@ -1,0 +1,13 @@
+---
+en:
+  layouts:
+    web:
+      application:
+        hexlet_title: "© Hexlet, %{year}"
+        title: Controller Hierarchy
+      shared:
+        nav:
+          hexlet_logo: Hexlet logo
+          home: Home
+          movies: Movies
+          reviews: Reviews

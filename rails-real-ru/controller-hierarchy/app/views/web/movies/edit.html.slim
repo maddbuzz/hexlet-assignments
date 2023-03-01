@@ -1,0 +1,10 @@
+= content_for :title do
+  = t('.edit_movie')
+
+== render 'form', movie: @movie
+
+hr
+
+.d-flex
+  = link_to t('show'), @movie, class: 'btn btn-outline-primary me-2'
+  = link_to t('back'), :back, class: 'btn btn-outline-primary'

@@ -1,0 +1,5 @@
+---
+ru:
+  activerecord:
+    errors:
+      models: Модели

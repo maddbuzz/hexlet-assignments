@@ -1,0 +1,17 @@
+= content_for :title do
+  = t('.movie_reviews', movie: resource_movie.title)
+
+div
+  = link_to t('.back'), movie_path(resource_movie), class: 'btn btn-primary mb-3'
+div
+  = link_to t('.new_movie_review'), new_movie_review_path, class: 'btn btn-primary mt-1 mb-3'
+
+- @reviews.each do |review|
+  card
+    .card-body.d-flex.justify-content-between
+      .card-text = review.body
+      .actions.d-flex
+        = link_to t('edit'), edit_movie_review_path(resource_movie, review), class: 'me-4'
+        = link_to t('destroy'), movie_review_path(resource_movie, review), data: { confirm: t('destroy_confirmation') }, method: :delete
+
+= link_to t('.new_movie_review'), new_movie_review_path, class: 'btn btn-primary mt-3'

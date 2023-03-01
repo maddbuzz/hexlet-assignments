@@ -1,0 +1,20 @@
+= content_for :title do
+  = @movie.title
+
+p
+  strong.me-2 = t('.description')
+  = @movie.description
+
+hr
+
+.mt-2
+  = link_to t('.go_to_reviews'), movie_reviews_path(@movie), class: 'btn btn-outline-primary'
+
+.mt-4
+  = link_to t('.go_to_comments'), movie_comments_path(@movie), class: 'btn btn-outline-primary'
+
+hr
+
+.d-flex
+  = link_to t('edit'), edit_movie_path(@movie), class: 'btn btn-outline-primary me-2'
+  = link_to t('back'), :back, class: 'btn btn-outline-primary'

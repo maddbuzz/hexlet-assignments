@@ -1,0 +1,16 @@
+---
+ru:
+  simple_form:
+    error_notification:
+      default_message: 'Пожалуйста, исправьте ошибки:'
+    'no': Нет
+    placeholders:
+      post:
+        body: Текст
+        title: Название
+      post_comment:
+        body: Текст
+    required:
+      mark: "*"
+      text: обязательное
+    'yes': ДА

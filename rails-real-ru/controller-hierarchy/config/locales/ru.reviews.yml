@@ -1,0 +1,16 @@
+---
+ru:
+  web:
+    movies:
+      reviews:
+        edit:
+          edit_movie_review: Редактировать обзор
+        index:
+          back: Назад к фильмам
+          movie_reviews: 'Обзор фильма: %{movie}'
+          new_movie_review: Новый обзор
+        new:
+          new_movie_review: Новый обзор
+    reviews:
+      index:
+        reviews: Обзоры

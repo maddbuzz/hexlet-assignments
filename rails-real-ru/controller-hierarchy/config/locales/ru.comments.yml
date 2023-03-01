@@ -1,0 +1,13 @@
+---
+ru:
+  web:
+    movies:
+      comments:
+        edit:
+          edit_movie_comment: Редактировать комментарий
+        index:
+          back: Назад к фильмам
+          movie_comments: 'Комментарии фильма: %{movie}'
+          new_movie_comment: Новый комментарий
+        new:
+          new_movie_comment: Новый комментарий
