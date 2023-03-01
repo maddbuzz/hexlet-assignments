@@ -8,20 +8,18 @@ module Web
       end
 
       def new
-        # @comment = Comment.new
-        @comment = resource_movie.comments.build
+        @comment = resource_movie.comments.new
       end
 
       def edit
-        @comment = Comment.find params[:id]
+        @comment = resource_movie.comments.find params[:id]
       end
 
       def create
-        # @comment = Comment.new(permitted_comment_params)
-        @comment = resource_movie.comments.build(permitted_comment_params)
+        @comment = resource_movie.comments.new(permitted_comment_params)
 
         if @comment.save
-          redirect_to movie_comments_path(resource_movie), notice: t('success')
+          redirect_to movie_comments_path, notice: t('success')
         else
           flash[:notice] = t('fail')
           render :new, status: :unprocessable_entity
@@ -29,10 +27,10 @@ module Web
       end
 
       def update
-        @comment = Comment.find params[:id]
+        @comment = resource_movie.comments.find params[:id]
 
         if @comment.update(permitted_comment_params)
-          redirect_to movie_comments_path(resource_movie), notice: t('success')
+          redirect_to movie_comments_path, notice: t('success')
         else
           flash[:notice] = t('fail')
           render :edit, status: :unprocessable_entity
@@ -40,20 +38,19 @@ module Web
       end
 
       def destroy
-        @comment = Comment.find params[:id]
+        @comment = resource_movie.comments.find params[:id]
 
         if @comment.destroy
-          redirect_to movie_comments_path(resource_movie), notice: t('.success')
+          redirect_to movie_comments_path, notice: t('success')
         else
-          redirect_to movie_comments_path(resource_movie), notice: t('.fail')
+          redirect_to movie_comments_path, notice: t('fail')
         end
       end
 
       private
 
       def permitted_comment_params
-        # params.require(:comment).permit(:body, :movie_id)
-        params.require(:comment).permit(:body)
+        params[:comment].permit(:body)
       end
     end
   end

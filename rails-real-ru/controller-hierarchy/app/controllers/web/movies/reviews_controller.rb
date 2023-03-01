@@ -8,20 +8,18 @@ module Web
       end
 
       def new
-        # @review = Review.new
-        @review = resource_movie.reviews.build
+        @review = resource_movie.reviews.new
       end
 
       def edit
-        @review = Review.find params[:id]
+        @review = resource_movie.reviews.find params[:id]
       end
 
       def create
-        # @review = Review.new(permitted_review_params)
-        @review = resource_movie.reviews.build(permitted_review_params)
+        @review = resource_movie.reviews.new(permitted_review_params)
 
         if @review.save
-          redirect_to movie_reviews_path(resource_movie), notice: t('success')
+          redirect_to movie_reviews_path, notice: t('success')
         else
           flash[:notice] = t('fail')
           render :new, status: :unprocessable_entity
@@ -29,10 +27,10 @@ module Web
       end
 
       def update
-        @review = Review.find params[:id]
+        @review = resource_movie.reviews.find params[:id]
 
         if @review.update(permitted_review_params)
-          redirect_to movie_reviews_path(resource_movie), notice: t('success')
+          redirect_to movie_reviews_path, notice: t('success')
         else
           flash[:notice] = t('fail')
           render :edit, status: :unprocessable_entity
@@ -40,20 +38,19 @@ module Web
       end
 
       def destroy
-        @review = Review.find params[:id]
+        @review = resource_movie.reviews.find params[:id]
 
         if @review.destroy
-          redirect_to movie_reviews_path(resource_movie), notice: t('.success')
+          redirect_to movie_reviews_path, notice: t('success')
         else
-          redirect_to movie_reviews_path(resource_movie), notice: t('.fail')
+          redirect_to movie_reviews_path, notice: t('fail')
         end
       end
 
       private
 
       def permitted_review_params
-        # params.require(:review).permit(:body, :movie_id)
-        params.require(:review).permit(:body)
+        params[:review].permit(:body)
       end
     end
   end
