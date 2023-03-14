@@ -1,0 +1,28 @@
+- content_for :title do
+  = @user.first_name
+
+p
+  strong.me-2 = t('.last_name')
+  = @user.last_name
+
+p
+  strong.me-2 = t('.email')
+  = @user.email
+
+p
+  strong.me-2 = t('.balance')
+  = @user.balance
+
+p
+  strong.me-2 = t('.address')
+  = @user.address
+
+p
+  strong.me-2 = t('.state')
+  = @user.state
+
+hr
+
+.d-flex
+  = link_to t('edit'), edit_user_path(@user), class: 'btn btn-outline-primary me-2'
+  = link_to t('back'), :back, class: 'btn btn-outline-primary'

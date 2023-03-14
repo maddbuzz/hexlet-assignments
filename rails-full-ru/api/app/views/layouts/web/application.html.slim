@@ -1,0 +1,34 @@
+doctype html
+html.h-100
+  head
+    title
+      / BEGIN
+      
+      / END
+    == csrf_meta_tags
+    == csp_meta_tag
+    meta name="keywords" content="template language"
+    meta name="author" content='author'
+    meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    = stylesheet_pack_tag 'application', media: 'all'
+    = javascript_pack_tag 'application'
+
+  body.d-flex.flex-column.h-100
+
+    = render 'layouts/web/shared/nav'
+
+    = render 'layouts/web/shared/flash'
+
+    main
+      .mt-4.mb-5.pb-5
+        .container
+          .p-4.align-items-center.border.shadow.bg-white.rounded-3
+            .mb-4
+              h2 = yield :title
+
+            == yield
+
+    footer.bg-dark.text-light.mt-auto
+      .container-xl
+        .row.py-2
+          = t('.hexlet_title', year: Time.current.year)

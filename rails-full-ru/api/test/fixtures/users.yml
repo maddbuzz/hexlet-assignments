@@ -1,0 +1,20 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+DEFAULTS: &DEFAULTS
+  first_name: $LABEL
+  last_name: $LABEL
+  email: $LABEL@test.io
+  password_digest: 'password_digest'
+  balance: 0
+  address: $LABEL
+  state: active
+
+
+one:
+  <<: *DEFAULTS
+
+two:
+  <<: *DEFAULTS
+
+three:
+  <<: *DEFAULTS
