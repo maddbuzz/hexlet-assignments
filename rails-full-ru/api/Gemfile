@@ -32,7 +32,7 @@ gem 'simple_form'
 gem 'slim-rails'
 
 # BEGIN
-
+gem "responders"
 # END
 
 group :development, :test do
