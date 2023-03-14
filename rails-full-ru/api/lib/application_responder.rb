@@ -7,6 +7,6 @@ class ApplicationResponder < ActionController::Responder
   # include Responders::CollectionResponder
 
   # Configure default status codes for responding to errors and redirects.
-  self.error_status = :unprocessable_entity
+  # self.error_status = :unprocessable_entity
   self.redirect_status = :see_other
 end
