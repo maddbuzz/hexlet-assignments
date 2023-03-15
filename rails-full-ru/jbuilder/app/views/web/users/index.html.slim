@@ -1,0 +1,23 @@
+- content_for :title do
+  = t('.users')
+
+table.table.table-striped.table-hover.mb-5
+  thead
+    tr
+      th{ scope = 'col' } #
+      th{ scope = 'col' } = t('.first_name')
+      th{ scope = 'col' } = t('.email')
+      th
+
+  tbody
+    - @users.each_with_index do |user, i|
+      tr
+        th{ scope = 'row' } = i + 1
+        td = user.first_name
+        td = user.email
+        td.d-flex
+          .me-4 = link_to t('show'), user
+          .me-4 = link_to t('edit'), edit_user_path(user)
+          = link_to t('destroy'), user, data: { confirm: t('destroy_confirmation') }, method: :delete, class: 'link-danger'
+
+= link_to t('.new_user'), new_user_path, class: 'btn btn-primary'

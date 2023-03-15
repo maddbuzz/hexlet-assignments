@@ -1,0 +1,9 @@
+---
+en:
+  web:
+    users:
+      index:
+        new_user: New user
+        users: Users
+      show:
+        email: Email
