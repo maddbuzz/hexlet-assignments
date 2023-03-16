@@ -1,0 +1,30 @@
+= content_for :title do
+  = t('.users')
+
+.mb-2
+  = link_to t('.normal_csv'), normal_csv_users_path(format: :csv), class: 'btn btn-primary'
+.mb-2
+  = link_to t('.stream_csv'), stream_csv_users_path, class: 'btn btn-primary'
+
+= paginate @users, theme: 'bootstrap-5'
+
+table.table.table-striped.table-hover.mb-5
+  thead
+    tr
+      th{ scope = 'col' } = t('.name')
+      th{ scope = 'col' } = t('.email')
+      th
+
+  tbody
+    - @users.each do |user|
+      tr
+        td = user.name
+        td = user.email
+        td.d-flex
+          .me-4 = link_to t('show'), user
+          .me-4 = link_to t('edit'), edit_user_path(user)
+          = link_to t('destroy'), user, data: { confirm: t('destroy_confirmation') }, method: :delete
+
+= paginate @users, theme: 'bootstrap-5'
+
+= link_to t('.new_user'), new_user_path, class: 'btn btn-primary'

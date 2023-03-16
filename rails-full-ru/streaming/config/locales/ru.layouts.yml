@@ -1,0 +1,12 @@
+---
+ru:
+  layouts:
+    web:
+      application:
+        hexlet_title: "© Хекслет, %{year}"
+        title: Streaming
+      shared:
+        nav:
+          hexlet_logo: Hexlet logo
+          home: Домой
+          users: Пользователи

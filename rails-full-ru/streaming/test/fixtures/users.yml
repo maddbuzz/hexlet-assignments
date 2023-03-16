@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+DEFAULTS: &DEFAULTS
+  name: $LABEL
+  email: $LABEL@test.io
+
+admin:
+  <<: *DEFAULTS
+
+one:
+  <<: *DEFAULTS
+
+two:
+  <<: *DEFAULTS
+
+three:
+  <<: *DEFAULTS
