@@ -1,0 +1,12 @@
+---
+en:
+  layouts:
+    web:
+      application:
+        hexlet_title: "© Hexlet, %{year}"
+        title: Testing-2
+      shared:
+        nav:
+          hexlet_logo: Hexlet logo
+          home: Home
+          repositories: Repositories

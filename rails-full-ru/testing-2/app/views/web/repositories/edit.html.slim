@@ -1,0 +1,10 @@
+- content_for :title do
+  = t('.edit_repository')
+
+== render 'form', repository: @repository
+
+hr
+
+.d-flex
+  = link_to t('show'), @repository, class: 'btn btn-outline-primary me-2'
+  = link_to t('back'), :back, class: 'btn btn-outline-primary'

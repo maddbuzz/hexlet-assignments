@@ -1,0 +1,33 @@
+- content_for :title do
+  = @repository.link
+
+p
+  strong.me-2 = t('.repo_name')
+  = @repository.repo_name
+p
+  strong.me-2 = t('.owner_name')
+  = @repository.owner_name
+p
+  strong.me-2 = t('.description')
+  = @repository.description
+p
+  strong.me-2 = t('.default_branch')
+  = @repository.default_branch
+p
+  strong.me-2 = t('.watchers_count')
+  = @repository.watchers_count
+p
+  strong.me-2 = t('.language')
+  = @repository.language
+p
+  strong.me-2 = t('.repo_created_at')
+  = l(@repository.repo_created_at, format: :long)
+p
+  strong.me-2 = t('.repo_updated_at')
+  = l(@repository.repo_updated_at, format: :long)
+
+hr
+
+.d-flex
+  = link_to t('show'), @repository, class: 'btn btn-outline-primary me-2'
+  = link_to t('back'), :back, class: 'btn btn-outline-primary'

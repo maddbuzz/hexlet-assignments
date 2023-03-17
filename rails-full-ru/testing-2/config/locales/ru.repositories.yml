@@ -1,0 +1,18 @@
+---
+ru:
+  web:
+    repositories:
+      edit:
+        edit_repository: Редактировать репу
+      index:
+        default_branch: Ветка по умолчанию
+        language: Язык
+        new_repository: Новая репа
+        owner_name: Владелец
+        repo_created_at: Время создания
+        repo_name: Имя репы
+        repo_updated_at: Время обновления
+        repositories: Репозитории
+        watchers_count: НАблюдателей
+      new:
+        new_repository: Новая репа
