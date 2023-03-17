@@ -31,7 +31,7 @@ gem 'simple_form'
 gem 'slim-rails'
 
 # BEGIN
-gem 'octokit', '~> 5.0'
+gem 'octokit'
 # END
 
 group :development, :test do
