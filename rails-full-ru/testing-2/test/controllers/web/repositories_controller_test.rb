@@ -6,31 +6,62 @@ module Web
   class RepositoriesControllerTest < ActionDispatch::IntegrationTest
     # BEGIN
     setup do
-      repo_full_name = 'octocat/Hello-World'
-      @repo_link = "https://github.com/#{repo_full_name}"
-      request_link = "https://api.github.com/repos/#{repo_full_name}"
-      response_json_string = load_fixture 'files/response.json'
-
-      # stub_request(:get, request_link)
-      #   .with(
-      #     headers: {
-      #       'Accept' => 'application/vnd.github.v3+json',
-      #       'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-      #       'Content-Type' => 'application/json',
-      #       'User-Agent' => 'Octokit Ruby Gem 5.6.1'
-      #     }
-      #   )
-      #   .to_return(status: 200, body: response_json_string, headers: { content_type: 'application/json' })
-
-      stub_request(:get, request_link).to_return status: 200, body: response_json_string,
-                                                 headers: { content_type: 'application/json' }
+      @repo = repositories :one
+  
+      @attrs = {
+        link: 'https://github.com/railsware/js-routes'
+      }
     end
-
-    test 'should_create' do
-      post repositories_url(params: { repository: { link: @repo_link } })
-      assert_response :redirect
-      assert_redirected_to repositories_path
-      assert_equal I18n.t('success'), flash[:notice]
+  
+    test 'get index' do
+      get repositories_url
+      assert_response :success
+    end
+  
+    test 'get new' do
+      get new_repository_url
+      assert_response :success
+    end
+  
+    test 'should create' do
+      response = load_fixture('files/response.json')
+  
+      stub_request(:get, 'https://api.github.com/repos/railsware/js-routes')
+        .to_return(
+          status: 200,
+          body: response,
+          headers: { 'Content-Type' => 'application/json' }
+        )
+  
+      post repositories_url, params: { repository: @attrs }
+  
+      repository = Repository.find_by @attrs
+  
+      assert { repository }
+      assert { repository.description.present? }
+      assert_redirected_to repository_url(repository)
+    end
+  
+    test 'get edit' do
+      get edit_repository_url(@repo)
+      assert_response :success
+    end
+  
+    test 'should update' do
+      patch repository_url(@repo), params: { repository: @attrs }
+  
+      @repo.reload
+  
+      assert { @repo.link == @attrs[:link] }
+      assert_redirected_to repositories_url
+    end
+  
+    test 'destroy' do
+      delete repository_url(@repo)
+  
+      assert { !Repository.exists? @repo.id }
+  
+      assert_redirected_to repositories_url
     end
     # END
   end

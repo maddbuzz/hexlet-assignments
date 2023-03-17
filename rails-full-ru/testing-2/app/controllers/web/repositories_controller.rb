@@ -20,26 +20,28 @@ module Web
 
     def create
       # BEGIN
-      repo_link = permitted_params[:link]
-      repo_full_name = repo_link.remove 'https://github.com/'
-      client = Octokit::Client.new
-      response = client.repo repo_full_name
-
-      @repository = Repository.new
-      @repository.link = repo_link
-      @repository.owner_name = response.owner.login
-      @repository.repo_name = response.name
-      @repository.description = response.description
-      @repository.default_branch = response.default_branch
-      @repository.watchers_count = response.watchers_count
-      @repository.language = response.language
-      @repository.repo_created_at = response.created_at
-      @repository.repo_updated_at = response.updated_at
+      @repository = Repository.new(permitted_params)
 
       if @repository.save
-        redirect_to repositories_path, notice: t('success')
+        client = Octokit::Client.new
+  
+        octokit_repo = Octokit::Repository.from_url(@repository.link)
+  
+        github_data = client.repository(octokit_repo)
+  
+        @repository.update!(
+          repo_name: github_data[:name],
+          owner_name: github_data[:owner][:login],
+          description: github_data[:description],
+          default_branch: github_data[:default_branch],
+          watchers_count: github_data[:watchers_count],
+          language: github_data[:language],
+          repo_created_at: github_data[:created_at],
+          repo_updated_at: github_data[:updated_at]
+        )
+        redirect_to @repository, notice: t('success')
       else
-        flash[:alert] = t('fail')
+        flash[:notice] = t('fail')
         render :new, status: :unprocessable_entity
       end
       # END
