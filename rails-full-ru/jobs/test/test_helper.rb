@@ -5,7 +5,7 @@ require_relative '../config/environment'
 require 'rails/test_help'
 
 # BEGIN
-
+require 'webmock/minitest'
 # END
 
 module ActiveSupport

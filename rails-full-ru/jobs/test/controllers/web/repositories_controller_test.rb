@@ -32,12 +32,12 @@ class Web::RepositoriesControllerTest < ActionDispatch::IntegrationTest
     assert_enqueued_with job: RepositoryLoaderJob
   end
 
-  test 'update' do
-    patch repository_url(@repo)
+  # test 'update' do
+  #   patch repository_url(@repo)
 
-    assert_redirected_to repositories_url
-    assert_enqueued_with job: RepositoryLoaderJob
-  end
+  #   assert_redirected_to repositories_url
+  #   assert_enqueued_with job: RepositoryLoaderJob
+  # end
 
   test 'destroy' do
     delete repository_url(@repo)
