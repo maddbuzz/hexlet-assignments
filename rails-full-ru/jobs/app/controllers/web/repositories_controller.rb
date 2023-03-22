@@ -19,12 +19,13 @@ module Web
     def create
       # BEGIN
       @repository = Repository.new(permitted_params)
+
       if @repository.save
-        perform_fetchin_later(@repository)
-        redirect_to repository_url(@repository)
-        # redirect_to repositories_url
+        RepositoryLoaderJob.perform_later @repository.id
+  
+        redirect_to repository_path(@repository), notice: t('success')
       else
-        flash[:alert] = t('fail')
+        flash[:notice] = t('fail')
         render :new, status: :unprocessable_entity
       end
       # END
@@ -33,22 +34,22 @@ module Web
     def update
       # BEGIN
       @repository = Repository.find params[:id]
-      if @repository.update(permitted_params)
-        perform_fetchin_later(@repository)
-      else
-        flash[:alert] = t('fail')
-      end
-      redirect_to repositories_url
+
+      RepositoryLoaderJob.perform_later @repository.id
+  
+      redirect_to repositories_path, notice: t('success')
       # END
     end
 
     def update_repos
       # BEGIN
-      Repository.all.each do |repository|
-        perform_fetchin_later(repository)
+      repositories = Repository.all
+
+      repositories.each do |repository|
+        RepositoryLoaderJob.perform_later repository.id
       end
-      redirect_to repositories_url
-      flash[:notice] = t('repos updated?')
+  
+      redirect_to repositories_path, notice: t('success')
       # END
     end
 

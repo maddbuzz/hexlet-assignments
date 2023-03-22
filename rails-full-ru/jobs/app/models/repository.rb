@@ -6,20 +6,26 @@ class Repository < ApplicationRecord
   # BEGIN
   include AASM
 
-  aasm column: 'aasm_state' do
+  aasm do
     state :created, initial: true
-    state :fetching, :fetched, :failed
+    state :fetching
+    state :fetched
+    state :failed
 
-    event :to_fetching do
+    event :fetch do
       transitions from: %i[created fetched failed], to: :fetching
     end
-    
-    event :to_fetched do
-      transitions from: %i[created fetching fetched], to: :fetched
+
+    event :rollback do
+      transitions from: :fetching, to: :created
     end
 
-    event :to_failed do
-      transitions from: %i[fetching fetched], to: :failed
+    event :mark_as_fetched do
+      transitions from: :fetching, to: :fetched
+    end
+
+    event :mark_as_failed do
+      transitions to: :failed
     end
   end
   # END
