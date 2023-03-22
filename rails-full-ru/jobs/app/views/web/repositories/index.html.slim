@@ -1,0 +1,43 @@
+- content_for :title do
+  = t('.repositories')
+
+.mb-3 = link_to t('.update_repos'), update_repos_repositories_path, method: :patch, class: 'btn btn-primary'
+
+table.table.table-striped.table-hover.mb-5
+  thead
+    tr
+      th{ scope = 'col' } #
+      th{ scope = 'col' } = t('.link')
+      th{ scope = 'col' } = t('.owner_name')
+      th{ scope = 'col' } = t('.repo_name')
+      th{ scope = 'col' } = t('.state')
+      th{ scope = 'col' } = t('.default_branch')
+      th{ scope = 'col' } = t('.watchers_count')
+      th{ scope = 'col' } = t('.language')
+      th{ scope = 'col' } = t('.repo_created_at')
+      th{ scope = 'col' } = t('.repo_updated_at')
+      th
+
+  tbody
+    - @repositories.each_with_index do |repository, i|
+      tr
+        th{ scope = 'row' } = i + 1
+        td = repository.link
+        td = repository.owner_name
+        td = repository.repo_name
+        td = repository.aasm.human_state
+        td = repository.default_branch
+        td = repository.watchers_count
+        td = repository.language
+        td = repository.repo_created_at
+        td = repository.repo_updated_at
+        td
+          ul.list-group.border-0.bg-transparent
+          li.list-group-item.border-0.bg-transparent
+            = link_to t('show'), repository_path(repository), class: 'me-2'
+          li.list-group-item.border-0.bg-transparent
+            = link_to t('update'), repository_path(repository), method: :patch, class: 'me-2'
+          li.list-group-item.border-0.bg-transparent
+            = link_to t('destroy'), repository, data: { confirm: t('destroy_confirmation') }, method: :delete, class: 'text-danger'
+
+= link_to t('.new_repository'), new_repository_path, class: 'btn btn-primary'

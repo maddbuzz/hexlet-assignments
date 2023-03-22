@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+created:
+  link: "https://github.com/Hexlet/hexlet-cv"
+  aasm_state: "created"
+
+fetched:
+  link: "https://github.com/Hexlet/hexlet-sicp"
+  owner_name: "Hexlet"
+  repo_name: "hexlet-sicp"
+  description: "Hexlet SICP"
+  aasm_state: "fetched"
+  default_branch: "master"
+  watchers_count: 49
+  language: "PHP"
+  repo_created_at: Wed, 28 Aug 2019 15:38:17.000000000 UTC +00:00,
+  repo_updated_at: Mon, 20 Sep 2021 08:12:11.000000000 UTC +00:00,
+  created_at: Mon, 20 Sep 2021 13:41:40.716807000 UTC +00:00,
+  updated_at: Mon, 20 Sep 2021 14:21:58.077487000 UTC +00:00>

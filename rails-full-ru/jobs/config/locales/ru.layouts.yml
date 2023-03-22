@@ -1,0 +1,12 @@
+---
+ru:
+  layouts:
+    web:
+      application:
+        hexlet_title: "© Хекслет, %{year}"
+        title: Джобы
+      shared:
+        nav:
+          hexlet_logo: Hexlet logo
+          home: Домой
+          repositories: Репозитории
