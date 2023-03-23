@@ -4,5 +4,5 @@
 .row.row-cols-3
   - @articles.each do |article|
     / BEGIN
-    
+    == render partial: 'article', cached: true, locals: { article: }
     / END

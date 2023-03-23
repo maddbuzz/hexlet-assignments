@@ -34,7 +34,7 @@ gem 'simple_form'
 gem 'slim-rails'
 
 # BEGIN
-
+gem 'actionpack-action_caching'
 # END
 
 group :development, :test do
