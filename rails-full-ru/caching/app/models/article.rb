@@ -2,10 +2,10 @@
 
 class Article < ApplicationRecord
   # BEGIN
-  attr_writer :last_reading_date
-
   def last_reading_date
-    @last_reading_date ||= updated_at
+    Rails.cache.fetch("#{cache_key_with_version}/last_reading_date", expires_in: 12.hours) do
+      DateTime.now
+    end
   end
   # END
 end

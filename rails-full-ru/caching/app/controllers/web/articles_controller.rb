@@ -12,9 +12,7 @@ module Web
 
     # BEGIN
     def show
-      @article = Article.find(params[:id])
-      @article.last_reading_date = Time.now
-      @article.save!
+      @article = Article.find params[:id]
     end
     # END
   end
