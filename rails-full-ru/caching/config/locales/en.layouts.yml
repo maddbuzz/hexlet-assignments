@@ -1,0 +1,12 @@
+---
+en:
+  layouts:
+    web:
+      application:
+        hexlet_title: "© Hexlet, %{year}"
+        title: Caching
+      shared:
+        nav:
+          hexlet_logo: Hexlet logo
+          home: Home
+          users: Users

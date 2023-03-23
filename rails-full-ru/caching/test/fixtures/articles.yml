@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+DEFAULTS: &DEFAULTS
+  title: $LABEL
+  summary: Some summary
+  body: Some body
+  published_at: <%= DateTime.now %>
+
+one:
+  <<: *DEFAULTS
+
+two:
+  <<: *DEFAULTS
+
+three:
+  <<: *DEFAULTS
