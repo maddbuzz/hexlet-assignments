@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'lib/rails_stats/version'
+
 Gem::Specification.new do |spec|
   spec.name        = 'rails_stats'
   spec.version     = '0.1.0'

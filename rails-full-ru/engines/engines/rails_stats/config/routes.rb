@@ -2,7 +2,6 @@
 
 RailsStats::Engine.routes.draw do
   # BEGIN
-  mount Blog::Engine, at: '/blog'
-  root to: 'stats#index'
+  root 'stats#index'
   # END
 end
