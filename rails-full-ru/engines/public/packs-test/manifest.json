@@ -1,0 +1,11 @@
+{
+  "application.js": "/packs-test/js/application-440e80d90963bd6b316f.js",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "/packs-test/js/application-440e80d90963bd6b316f.js"
+      ]
+    }
+  },
+  "media/images/logo.png": "/packs-test/media/images/logo-a0b86e896b6dfac8cd21d3bbef4f0153.png"
+}

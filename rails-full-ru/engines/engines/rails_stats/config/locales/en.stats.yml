@@ -1,0 +1,6 @@
+en:
+  rails_stats:
+    stats:
+      index:
+        title: Application Statistics
+        greetings: Hello from Rails Stats engine!
