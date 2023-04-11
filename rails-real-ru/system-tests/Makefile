@@ -10,6 +10,7 @@ console:
 
 test:
 	bin/rails assets:precompile
+	firefox -v || sudo apt install -y firefox
 	MOZ_HEADLESS=1 NODE_ENV=test bin/rails test
 
 .PHONY: test
