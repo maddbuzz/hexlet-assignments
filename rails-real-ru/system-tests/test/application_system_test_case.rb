@@ -7,5 +7,9 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   #   driver.add_argument('--no-sandbox')
   #   driver.add_argument('--disable-gpu')
   # end
-  driven_by :rack_test
+  
+  # driven_by :rack_test
+
+  driven_by :selenium, using: :firefox
+  # driven_by :selenium_headless
 end

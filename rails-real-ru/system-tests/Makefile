@@ -10,6 +10,6 @@ console:
 
 test:
 	bin/rails assets:precompile
-	NODE_ENV=test bin/rails test
+	MOZ_HEADLESS=1 NODE_ENV=test bin/rails test
 
 .PHONY: test
