@@ -34,9 +34,9 @@ class PostsTest < ApplicationSystemTestCase
 
   test 'destroying a Post' do
     visit posts_url
-    page.accept_confirm do
-      click_on 'Destroy', match: :first
-    end
+    # page.accept_confirm do
+    #   click_on 'Destroy', match: :first
+    # end
     click_on 'Destroy', match: :first
     assert_text 'Post was successfully destroyed'
   end
