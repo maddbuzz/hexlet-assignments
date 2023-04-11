@@ -1,4 +1,5 @@
 setup:
+	sudo apt install -y firefox
 	bin/setup
 	bin/rails db:fixtures:load
 
@@ -10,7 +11,6 @@ console:
 
 test:
 	bin/rails assets:precompile
-	firefox -v || sudo apt install -y firefox
 	MOZ_HEADLESS=1 NODE_ENV=test bin/rails test
 
 .PHONY: test
